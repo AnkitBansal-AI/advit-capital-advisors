@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advit Capital Advisors – Financial Advisory & Mutual Fund Planning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0B1F3A;
+      --deep:    #071428;
+      --gold:    #C9993A;
+      --gold-lt: #E8BF6A;
+      --cream:   #F7F3EE;
+      --slate:   #3C5066;
+      --mist:    #EAF0F7;
+      --text:    #1A2B3C;
+      --muted:   #6B7E90;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(7, 20, 40, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: 0.02em; }
+    .nav-logo-sub  { font-size: 10px; font-weight: 400; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-cta {
+      padding: 9px 22px; border-radius: 6px; font-size: 13px; font-weight: 600;
+      background: var(--gold); color: var(--deep); text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: var(--deep); z-index: 999;
+      padding: 16px 5% 24px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 12px 0; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .mobile-menu .nav-cta { margin-top: 12px; text-align: center; color: var(--deep); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--deep) 0%, var(--navy) 55%, #12345A 100%);
+      display: flex; align-items: center;
+      padding: 120px 5% 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      max-width: 1200px; width: 100%; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(201,153,58,0.1); border: 1px solid rgba(201,153,58,0.25);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 62px); font-weight: 700; line-height: 1.1;
+      color: var(--white); margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);
+      max-width: 480px; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      background: var(--gold); color: var(--deep); text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .btn-outline {
+      padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.25); color: var(--white);
+      text-decoration: none; transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); transform: translateY(-1px); }
+
+    /* Hero right – metrics card */
+    .hero-card-wrap { position: relative; }
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .metric {
+      padding: 20px; border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .metric-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 700; color: var(--gold-lt); line-height: 1;
+    }
+    .metric-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+    .hero-process { margin-top: 24px; }
+    .process-step {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 8px;
+    }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(201,153,58,0.15); border: 1px solid rgba(201,153,58,0.35);
+      display: grid; place-items: center;
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .step-text { font-size: 13px; color: rgba(255,255,255,0.7); }
+
+    /* Geometric background shapes */
+    .hero-geo {
+      position: absolute; border-radius: 50%;
+      background: rgba(201,153,58,0.04);
+      pointer-events: none;
+    }
+    .geo-1 { width: 500px; height: 500px; top: -100px; right: -100px; }
+    .geo-2 { width: 300px; height: 300px; bottom: 0; left: 5%; background: rgba(201,153,58,0.03); }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--cream); padding: 20px 5%;
+      border-top: 1px solid #E2D9CE; border-bottom: 1px solid #E2D9CE;
+    }
+    .trust-bar-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center; gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
+    .trust-icon { font-size: 20px; }
+    .trust-divider { width: 1px; height: 24px; background: #D0C7BD; }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 90px 5%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.2;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .section-sub { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 520px; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-visual {
+      position: relative;
+    }
+    .about-bg-card {
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      border-radius: 20px;
+      padding: 48px 40px;
+      color: var(--white);
+    }
+    .about-bg-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 600; margin-bottom: 16px;
+    }
+    .about-bg-card p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.7); }
+    .advisor-tag {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--gold);
+      color: var(--deep); font-weight: 700; font-size: 13px;
+      padding: 12px 20px; border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(201,153,58,0.3);
+    }
+    .about-content ul { list-style: none; margin-top: 28px; }
+    .about-content li {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 0; border-bottom: 1px solid #EEE;
+    }
+    .about-content li:last-child { border-bottom: none; }
+    .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(201,153,58,0.12); border: 1px solid rgba(201,153,58,0.3);
+      display: grid; place-items: center; flex-shrink: 0; margin-top: 1px;
+      font-size: 11px; color: var(--gold);
+    }
+    .about-content li p { font-size: 14px; line-height: 1.6; color: var(--text); }
+    .about-content li strong { display: block; font-size: 15px; margin-bottom: 2px; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--mist); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; flex-wrap: wrap; gap: 20px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white);
+      border: 1px solid #E5EDF5;
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(11,31,58,0.1);
+      border-color: var(--gold);
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      display: grid; place-items: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 10px;
+    }
+    .service-card p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .service-tag {
+      display: inline-block; margin-top: 16px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--gold); text-transform: uppercase;
+    }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--white); }
+    .process-header { text-align: center; margin-bottom: 60px; }
+    .process-header .section-sub { margin: 0 auto; }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 36px; left: calc(16.67% + 20px); right: calc(16.67% + 20px);
+      height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .process-item { text-align: center; }
+    .process-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--navy);
+      border: 3px solid var(--gold);
+      display: grid; place-items: center; margin: 0 auto 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 700; color: var(--gold-lt);
+      position: relative; z-index: 1;
+    }
+    .process-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 10px;
+    }
+    .process-item p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+
+    /* ─── TOOLS / CALCULATORS ─── */
+    #tools { background: var(--navy); }
+    #tools h2 { color: var(--white); }
+    #tools .section-sub { color: rgba(255,255,255,0.55); }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .tool-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 28px 22px;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .tool-card:hover {
+      background: rgba(201,153,58,0.08);
+      border-color: rgba(201,153,58,0.4);
+      transform: translateY(-3px);
+    }
+    .tool-emoji { font-size: 30px; margin-bottom: 16px; }
+    .tool-card h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .tool-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    /* ─── WHY US ─── */
+    #why { background: var(--cream); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .why-card-stack { display: flex; flex-direction: column; gap: 16px; }
+    .why-card {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--white); border-radius: 14px;
+      padding: 24px 22px;
+      border: 1px solid #E5D9C8;
+      transition: box-shadow 0.2s;
+    }
+    .why-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .why-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 700; color: rgba(201,153,58,0.25);
+      line-height: 1; flex-shrink: 0; width: 36px;
+    }
+    .why-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--navy); }
+    .why-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .why-visual {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--slate) 100%);
+      border-radius: 20px; padding: 48px 36px; color: var(--white);
+    }
+    .why-visual h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 700; margin-bottom: 28px;
+    }
+    .disclaimer {
+      font-size: 12px; line-height: 1.7;
+      color: rgba(255,255,255,0.4);
+      padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;
+    }
+    .stat-row { display: flex; gap: 28px; margin-bottom: 24px; }
+    .stat-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 700; color: var(--gold-lt); line-height: 1;
+    }
+    .stat-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* ─── FAQS ─── */
+    #faqs { background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid #EEE; }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 15px; font-weight: 500; color: var(--text);
+      text-align: left; gap: 16px;
+    }
+    .faq-q:hover { color: var(--navy); }
+    .faq-chevron {
+      width: 24px; height: 24px; border-radius: 50%;
+      border: 1.5px solid #DDD; display: grid; place-items: center;
+      font-size: 14px; flex-shrink: 0; transition: transform 0.2s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+    .faq-a { display: none; padding: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--mist); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+    .contact-form { background: var(--white); border-radius: 16px; padding: 40px 36px; border: 1px solid #E5EDF5; }
+    .contact-form h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 28px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 12px; font-weight: 600; color: var(--slate); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px; border: 1.5px solid #DDE4EC;
+      border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text);
+      transition: border-color 0.2s;
+      background: var(--white);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--gold);
+    }
+    .field textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%; padding: 14px; border: none; border-radius: 8px;
+      background: var(--navy); color: var(--white);
+      font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--slate); }
+    .contact-info { padding-top: 12px; }
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 700; color: var(--navy); margin-bottom: 12px;
+    }
+    .contact-info .section-sub { margin-bottom: 36px; }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--navy); display: grid; place-items: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .info-item h4 { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+    .info-item p { font-size: 15px; font-weight: 500; color: var(--text); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--deep); color: rgba(255,255,255,0.55);
+      padding: 60px 5% 28px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto 48px; }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 320px; }
+    .footer-col h4 { font-size: 13px; font-weight: 600; color: var(--white); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-lt); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-disc { font-size: 11px; line-height: 1.7; max-width: 700px; }
+    .footer-copy { font-size: 12px; white-space: nowrap; }
+    .amfi-badge {
+      display: inline-block; background: rgba(201,153,58,0.12); border: 1px solid rgba(201,153,58,0.3);
+      padding: 4px 10px; border-radius: 4px; font-size: 11px; color: var(--gold); font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .faq-grid, .contact-grid, .why-grid { grid-template-columns: 1fr; }
+      .hero-card-wrap { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      nav .nav-links, nav .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .services-grid, .tools-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+      background: var(--navy); color: var(--white);
+      padding: 16px 22px; border-radius: 10px;
+      font-size: 14px; font-weight: 500;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(80px); opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Consultation</a>
+  <button class="hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#process" onclick="closeMobile()">Our Process</a>
+  <a href="#tools" onclick="closeMobile()">Tools</a>
+  <a href="#faqs" onclick="closeMobile()">FAQs</a>
+  <a href="#contact" class="nav-cta" onclick="closeMobile()">Book a Consultation</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-geo geo-1"></div>
+  <div class="hero-geo geo-2"></div>
+  <div class="hero-grid">
+    <div>
+      <span class="hero-eyebrow">AMFI Registered Mutual Fund Distributor</span>
+      <h1>Your <em>wealth</em>, guided with purpose</h1>
+      <p class="hero-sub">Advit Capital Advisors provides personalised financial advisory and mutual fund planning tailored to your life goals — from wealth creation to retirement security.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Started →</a>
+        <a href="#services" class="btn-outline">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="metric-grid">
+          <div class="metric"><div class="metric-val">100%</div><div class="metric-label">Goal-based planning</div></div>
+          <div class="metric"><div class="metric-val">SIP</div><div class="metric-label">Disciplined investing</div></div>
+          <div class="metric"><div class="metric-val">5★</div><div class="metric-label">Client satisfaction</div></div>
+          <div class="metric"><div class="metric-val">∞</div><div class="metric-label">Ongoing support</div></div>
+        </div>
+        <div class="hero-process">
+          <div class="process-step"><div class="step-num">1</div><div class="step-text">Understand your goals & risk appetite</div></div>
+          <div class="process-step"><div class="step-num">2</div><div class="step-text">Build a tailored mutual fund portfolio</div></div>
+          <div class="process-step"><div class="step-num">3</div><div class="step-text">Monitor, review & rebalance regularly</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">🏛️</span> AMFI Registered</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> SEBI Guidelines Followed</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">📊</span> Data-driven Advisory</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">🤝</span> Client-first Approach</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">📱</span> Always Accessible</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="about-bg-card">
+        <h3>About Advit Capital Advisors</h3>
+        <p>We believe financial planning is deeply personal. At Advit Capital, we take the time to understand your unique circumstances — your goals, your family, your timeline — and craft investment strategies that actually fit your life, not just the market.</p>
+        <p style="margin-top:14px;">Whether you're starting your first SIP or restructuring a mature portfolio, we guide you with clarity, transparency, and genuine care for your financial wellbeing.</p>
+        <div class="amfi-badge">AMFI Registered MFD</div>
+      </div>
+      <div class="advisor-tag">📈 Personalised Advisory</div>
+    </div>
+    <div class="about-content">
+      <span class="eyebrow">About Us</span>
+      <h2>Trusted guidance for every stage of life</h2>
+      <p class="section-sub">We combine deep mutual fund knowledge with a listening-first approach to deliver advice that truly serves you.</p>
+      <ul>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Goal-based Planning</strong><p>Every rupee you invest is mapped to a specific goal — retirement, home, education, or freedom.</p></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Risk-aligned Portfolios</strong><p>We assess your risk profile carefully before recommending any scheme, ensuring you sleep well at night.</p></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Ongoing Review & Support</strong><p>Markets change and so do lives. We review your portfolio regularly and stay proactively in touch.</p></div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div><strong>Zero Pressure, Full Transparency</strong><p>No pushy sales tactics. You always know what you're investing in and why.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <span class="eyebrow">What We Offer</span>
+        <h2>Financial services built around you</h2>
+      </div>
+      <p class="section-sub">From your first investment to your retirement corpus — we're with you at every step.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Mutual Fund Planning</h3>
+        <p>Curated equity, debt, and hybrid fund recommendations aligned to your risk profile, horizon, and goals — with disciplined SIP strategies.</p>
+        <span class="service-tag">Core Service →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Goal-based Investing</h3>
+        <p>Whether it's buying a home in 5 years or funding your child's college in 15, we map your portfolio to specific milestones.</p>
+        <span class="service-tag">Personalised →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏖️</div>
+        <h3>Retirement Planning</h3>
+        <p>Build a retirement corpus that sustains your lifestyle. We plan your accumulation phase and advise on tax-efficient withdrawals.</p>
+        <span class="service-tag">Long-term Focus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3>Children's Education Fund</h3>
+        <p>Start early, invest right. We design education-specific fund portfolios that grow alongside your child's journey.</p>
+        <span class="service-tag">Future-ready →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Portfolio Review & Optimisation</h3>
+        <p>Already investing? We conduct a comprehensive health check of your existing mutual fund portfolio and suggest improvements.</p>
+        <span class="service-tag">For Existing Investors →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Tax-efficient Investing</h3>
+        <p>ELSS funds, capital gains planning, and more — we help you invest in a way that keeps your tax liability in check.</p>
+        <span class="service-tag">Tax Smart →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="process-header">
+      <span class="eyebrow">How It Works</span>
+      <h2>From first conversation to financial confidence</h2>
+      <p class="section-sub">Our three-step process is designed to feel simple, transparent, and reassuring — not overwhelming.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-item">
+        <div class="process-circle">1</div>
+        <h3>Understand Your Profile</h3>
+        <p>We start with a focused consultation to understand your income, goals, liabilities, risk comfort, and investment timeline — no jargon, just honest conversation.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-circle">2</div>
+        <h3>Recommend the Right Funds</h3>
+        <p>Based on your profile, we recommend suitable mutual fund schemes from across AMCs — equity, hybrid, or debt — with a clear rationale for each choice.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-circle">3</div>
+        <h3>Monitor, Review & Grow</h3>
+        <p>We don't disappear after the first investment. We regularly review performance, rebalance when needed, and keep you updated on your progress toward goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold)">Useful Tools</span>
+    <h2>Plan smarter with these calculators</h2>
+    <p class="section-sub">Use these tools to explore projections before we meet. Knowledge builds confidence.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-emoji">🧮</div>
+        <h3>SIP Calculator</h3>
+        <p>Estimate how your monthly SIP grows over time with assumed returns.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">🎯</div>
+        <h3>Goal Planner</h3>
+        <p>Find out how much you need to invest monthly to reach a specific corpus.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">⚖️</div>
+        <h3>Risk Profiler</h3>
+        <p>Answer a few questions to understand your ideal risk-return balance.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-emoji">💰</div>
+        <h3>Lumpsum Calculator</h3>
+        <p>Project the future value of a one-time investment at different return rates.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="#contact" class="btn-primary">Talk to an Advisor Instead →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container why-grid">
+    <div class="why-visual">
+      <h3>Why families trust Advit Capital Advisors</h3>
+      <div class="stat-row">
+        <div>
+          <div class="stat-big">100%</div>
+          <div class="stat-sub">Goal-based approach</div>
+        </div>
+        <div>
+          <div class="stat-big">0</div>
+          <div class="stat-sub">Hidden charges</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px;">We earn when you invest — as an AMFI registered distributor, our compensation is fully aligned with your long-term growth, not one-time sales targets.</p>
+      <div class="disclaimer">
+        Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance does not guarantee future results.
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Advice that puts you first, always</h2>
+      <div class="why-card-stack" style="margin-top:28px;">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <div>
+            <h3>Truly Personalised</h3>
+            <p>No cookie-cutter portfolios. Every plan is built from scratch for your specific situation and goals.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <div>
+            <h3>Education Over Sales</h3>
+            <p>We explain every recommendation in plain language so you're always in control of your financial decisions.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <div>
+            <h3>Proactive Communication</h3>
+            <p>We reach out when markets are volatile, when reviews are due, or when opportunities arise — not just when you call.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-num">04</div>
+          <div>
+            <h3>Long-term Partnership</h3>
+            <p>Our relationship is built for decades, not transactions. Your financial wellbeing is our ongoing commitment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQS -->
+<section id="faqs">
+  <div class="container faq-grid">
+    <div>
+      <span class="eyebrow">FAQs</span>
+      <h2>Questions we hear often</h2>
+      <p class="section-sub">If you have a question not answered here, reach out — we're always happy to have an honest conversation.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:32px;">Ask Us Directly →</a>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I get started with Advit Capital Advisors?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">Simply fill out the contact form or call us for a free initial consultation. We'll understand your goals and financial situation before making any recommendations.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the minimum amount to start investing?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">You can start a SIP with as little as ₹500 per month. We believe investing is for everyone, not just the wealthy. We'll find a plan that fits your current budget.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How are you compensated — do you charge fees?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">As an AMFI registered distributor, we earn a commission from the AMC (Asset Management Company) when you invest through us. There is no separate fee charged to you for our advisory services. Full transparency, always.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Which mutual funds do you recommend?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">We work with all major AMCs in India — like SBI, HDFC, ICICI Prudential, Mirae, Axis, and others. Recommendations are fund-agnostic and entirely based on what suits your profile and goals.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How often will you review my portfolio?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">We typically conduct formal reviews every 6 months. However, we also monitor market events and will reach out proactively if any action is warranted in your portfolio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Are mutual fund investments safe?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">Mutual funds are subject to market risks. However, with goal-based, diversified investing over the right time horizon, they have historically delivered strong inflation-beating returns. We help you choose schemes appropriate for your risk comfort.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Get in Touch</span>
+      <h3>Start your financial journey today</h3>
+      <p class="section-sub">Book a free, no-obligation consultation. We'll listen first, then advise — never the other way around.</p>
+      <div class="info-item" style="margin-top:36px;">
+        <div class="info-icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <p>contact@advitcapital.in</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>Phone / WhatsApp</h4>
+          <p>+91 98765 43210</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>Available across India (Online & In-person)</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Book a Free Consultation</h3>
+      <div class="form-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="Rahul" />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="rahul@example.com" />
+      </div>
+      <div class="field">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" placeholder="+91 98765 43210" />
+      </div>
+      <div class="field">
+        <label>I'm interested in</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Mutual Fund Planning (SIP)</option>
+          <option>Retirement Planning</option>
+          <option>Children's Education Fund</option>
+          <option>Portfolio Review</option>
+          <option>Tax-efficient Investing</option>
+          <option>General Financial Guidance</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tell us about your goals (optional)</label>
+        <textarea placeholder="E.g. I want to save ₹50L for my child's education in 12 years…"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="display:inline-flex;">
+        <div class="nav-logo-mark">A</div>
+        <div>
+          <div class="nav-logo-text">Advit Capital</div>
+          <div class="nav-logo-sub">Advisors</div>
+        </div>
+      </a>
+      <p>Empowering individuals and families across India to achieve financial clarity, security, and growth through personalised mutual fund advisory.</p>
+      <div class="amfi-badge">AMFI Registered Mutual Fund Distributor</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Mutual Fund Planning</a></li>
+        <li><a href="#services">Goal-based Investing</a></li>
+        <li><a href="#services">Retirement Planning</a></li>
+        <li><a href="#services">Education Planning</a></li>
+        <li><a href="#services">Portfolio Review</a></li>
+        <li><a href="#services">Tax-efficient Investing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#tools">Calculators</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-disc">
+      <strong style="color:rgba(255,255,255,0.4)">Disclaimer:</strong> Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. The NAVs of schemes may go up or down depending on factors affecting the securities market. Past performance is not indicative of future results. Advit Capital Advisors is an AMFI Registered Mutual Fund Distributor and does not provide portfolio management services.
+    </p>
+    <p class="footer-copy">© 2025 Advit Capital Advisors. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✅ Message sent! We'll be in touch within 24 hours.</div>
+
+<script>
+  // Mobile menu
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Form submit toast
+  function handleSubmit() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  // Nav background on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 40
+      ? 'rgba(7, 20, 40, 0.98)'
+      : 'rgba(7, 20, 40, 0.96)';
+  });
+</script>
+</body>
+</html>
