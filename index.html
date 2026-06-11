@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     :root {
       --navy:    #0B1F3A;
       --deep:    #071428;
@@ -457,6 +457,55 @@
       .services-grid, .tools-grid { grid-template-columns: 1fr; }
     }
 
+    /* ─── BLOG PREVIEW ─── */
+    #blog-preview { background: var(--cream); }
+    .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+    .view-all-link { font-size: 14px; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+    .view-all-link:hover { color: var(--gold); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .blog-card {
+      background: var(--white); border-radius: 16px;
+      border: 1px solid #E5D9C8; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; display: flex; flex-direction: column;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,31,58,0.1); }
+    .blog-card-img {
+      height: 150px;
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 44px;
+    }
+    .blog-card-body { padding: 22px 20px; flex: 1; display: flex; flex-direction: column; }
+    .blog-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.1);
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+    }
+    .blog-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 600; color: var(--navy);
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .blog-card p { font-size: 13px; line-height: 1.6; color: var(--muted); flex: 1; }
+    .blog-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid #EEE; }
+    .blog-date { font-size: 12px; color: var(--muted); }
+    .blog-read { font-size: 12px; font-weight: 600; color: var(--navy); }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    /* ─── GOOGLE FORM EMBED ─── */
+    .gform-wrap { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid #E5EDF5; }
+    .gform-label {
+      background: var(--mist); padding: 12px 20px;
+      font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid #DDE4EC; flex-wrap: wrap;
+    }
+    .gform-badge { background: #4285F4; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .gform-note { font-size: 11px; color: #aaa; margin-left: auto; font-style: italic; }
+    .gform-wrap iframe { display: block; width: 100%; border: none; min-height: 680px; }
+
     /* ─── TOAST ─── */
     .toast {
       position: fixed; bottom: 32px; right: 32px; z-index: 9999;
@@ -488,6 +537,7 @@
     <li><a href="#process">Our Process</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#faqs">FAQs</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Book a Consultation</a>
   <button class="hamburger" id="menuBtn" aria-label="Open menu">
@@ -500,6 +550,7 @@
   <a href="#process" onclick="closeMobile()">Our Process</a>
   <a href="#tools" onclick="closeMobile()">Tools</a>
   <a href="#faqs" onclick="closeMobile()">FAQs</a>
+  <a href="blog/index.html" onclick="closeMobile()">Blog</a>
   <a href="#contact" class="nav-cta" onclick="closeMobile()">Book a Consultation</a>
 </div>
 
@@ -814,6 +865,57 @@
   </div>
 </section>
 
+<!-- BLOG PREVIEW -->
+<section id="blog-preview">
+  <div class="container">
+    <div class="blog-header">
+      <div>
+        <span class="eyebrow">From the Blog</span>
+        <h2>Financial insights for everyday investors</h2>
+      </div>
+      <a href="blog/index.html" class="view-all-link">View all posts →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/what-is-sip.html" class="blog-card">
+        <div class="blog-card-img">📈</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Mutual Funds</span>
+          <h3>What is a SIP and why every salaried person should start one</h3>
+          <p>SIP — Systematic Investment Plan — is the most disciplined way to build wealth. Here's why starting early, even with ₹500, makes a massive difference.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">June 10, 2025</span>
+            <span class="blog-read">5 min read →</span>
+          </div>
+        </div>
+      </a>
+      <a href="blog/growth-vs-dividend.html" class="blog-card">
+        <div class="blog-card-img">⚖️</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Mutual Funds Fundamentals</span>
+          <h3>Growth vs Dividend Option: What Should You Choose?</h3>
+          <p>Growth or dividend — one of the most common questions new investors ask. The answer depends on your goals, tax situation, and whether you actually need regular income.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">June 9, 2025</span>
+            <span class="blog-read">4 min read →</span>
+          </div>
+        </div>
+      </a>
+      <a href="blog/elss-tax-saving.html" class="blog-card">
+        <div class="blog-card-img">🛡️</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Tax Planning</span>
+          <h3>ELSS: Save tax and grow wealth at the same time</h3>
+          <p>ELSS funds are the smartest 80C instrument — they have the shortest lock-in among all tax-saving options and the highest return potential.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">June 8, 2025</span>
+            <span class="blog-read">4 min read →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container contact-grid">
@@ -842,47 +944,41 @@
           <p>Available across India (Online & In-person)</p>
         </div>
       </div>
+      <div style="margin-top:32px;padding:20px;background:rgba(66,133,244,0.06);border:1px solid rgba(66,133,244,0.15);border-radius:12px;">
+        <p style="font-size:13px;color:var(--slate);line-height:1.7;">
+          <strong style="color:var(--navy);">📋 Using Google Forms</strong><br>
+          The form on the right is a Google Form embedded in your site. All responses go directly to your <strong>Google Sheets</strong> and your <strong>Gmail inbox</strong> — no backend needed. You'll get an email notification the moment someone submits.
+        </p>
+      </div>
     </div>
-    <div class="contact-form">
-      <h3>Book a Free Consultation</h3>
-      <div class="form-row">
-        <div class="field">
-          <label>First Name</label>
-          <input type="text" placeholder="Rahul" />
+    <div>
+      <!-- ─────────────────────────────────────────────────────────────
+           HOW TO GET YOUR OWN GOOGLE FORM LINK:
+           1. Go to forms.google.com → create your form
+           2. Click Send → Embed ( </> icon ) → copy the <iframe> src URL
+           3. Replace the src below with your actual form URL
+           4. Keep ?embedded=true at the end of the URL
+           ───────────────────────────────────────────────────────────── -->
+      <div class="gform-wrap">
+        <div class="gform-label">
+          <span class="gform-badge">Google Forms</span>
+          Responses are saved to your Google Sheets automatically
+          <span class="gform-note">Styled wrapper by Advit Capital</span>
         </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input type="text" placeholder="Sharma" />
-        </div>
+        <iframe
+          src="https://docs.google.com/forms/d/e/PLACEHOLDER_REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
+          title="Book a Free Consultation"
+          loading="lazy">
+          Loading form…
+        </iframe>
       </div>
-      <div class="field">
-        <label>Email Address</label>
-        <input type="email" placeholder="rahul@example.com" />
-      </div>
-      <div class="field">
-        <label>Phone / WhatsApp</label>
-        <input type="tel" placeholder="+91 98765 43210" />
-      </div>
-      <div class="field">
-        <label>I'm interested in</label>
-        <select>
-          <option value="">Select a service…</option>
-          <option>Mutual Fund Planning (SIP)</option>
-          <option>Retirement Planning</option>
-          <option>Children's Education Fund</option>
-          <option>Portfolio Review</option>
-          <option>Tax-efficient Investing</option>
-          <option>General Financial Guidance</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Tell us about your goals (optional)</label>
-        <textarea placeholder="E.g. I want to save ₹50L for my child's education in 12 years…"></textarea>
-      </div>
-      <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+      <p style="font-size:12px;color:var(--muted);margin-top:10px;text-align:center;">
+        Form not loading? <a href="https://docs.google.com/forms/d/e/PLACEHOLDER_REPLACE_WITH_YOUR_FORM_ID/viewform" target="_blank" style="color:var(--gold);">Open in a new tab →</a>
+      </p>
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -916,6 +1012,7 @@
         <li><a href="#process">Our Process</a></li>
         <li><a href="#tools">Calculators</a></li>
         <li><a href="#faqs">FAQs</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>

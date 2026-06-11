@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is a SIP? – Advit Capital Advisors Blog</title>
+  <meta name="description" content="SIP — Systematic Investment Plan — is the most disciplined way to build wealth. Here's why starting early, even with ₹500, makes a massive difference." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    /* Article hero */
+    .post-hero {
+      background: linear-gradient(160deg, var(--deep), var(--navy));
+      padding: 64px 5% 56px;
+    }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.25);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 18px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .post-meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .post-meta .divider { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    /* Article layout */
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 60px 5%;
+      align-items: start;
+    }
+    @media(max-width:900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+    /* Article body */
+    .post-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .post-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 700; color: var(--navy);
+      margin: 40px 0 14px;
+    }
+    .post-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px; font-weight: 600; color: var(--navy);
+      margin: 28px 0 10px;
+    }
+    .post-body p { margin-bottom: 20px; }
+    .post-body ul, .post-body ol { margin: 0 0 20px 22px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { font-weight: 600; color: var(--navy); }
+    .post-body em { font-style: italic; }
+    .callout {
+      background: rgba(201,153,58,0.07);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 20px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: var(--slate);
+    }
+    .post-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .post-table th { background: var(--navy); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 600; }
+    .post-table td { padding: 11px 14px; border-bottom: 1px solid #EEE; }
+    .post-table tr:nth-child(even) td { background: var(--mist); }
+    .post-disclaimer {
+      margin-top: 40px; padding: 18px 20px;
+      background: #F9F9F9; border: 1px solid #EEE; border-radius: 10px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    /* Sidebar */
+    .post-sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: var(--navy); border-radius: 16px; padding: 28px 24px; color: var(--white); margin-bottom: 20px;
+    }
+    .sidebar-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 700; margin-bottom: 10px;
+    }
+    .sidebar-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 18px; }
+    .sidebar-btn {
+      display: block; text-align: center; padding: 12px;
+      background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13px;
+      border-radius: 8px; text-decoration: none; transition: background 0.2s;
+    }
+    .sidebar-btn:hover { background: var(--gold-lt); }
+    .related-card { background: var(--mist); border-radius: 14px; padding: 22px 20px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .related-link {
+      display: flex; align-items: flex-start; gap: 10px;
+      text-decoration: none; padding: 10px 0; border-bottom: 1px solid #DDD;
+    }
+    .related-link:last-child { border-bottom: none; }
+    .related-link span { font-size: 13px; color: var(--slate); line-height: 1.4; }
+    .related-link:hover span { color: var(--navy); }
+
+    /* Back to blog */
+    .post-footer {
+      background: var(--cream); padding: 48px 5%; text-align: center;
+    }
+    .post-footer p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+    .back-btn {
+      display: inline-block; padding: 12px 28px; border-radius: 8px;
+      background: var(--navy); color: var(--white); font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .back-btn:hover { background: var(--slate); }
+
+    footer {
+      background: var(--deep); color: rgba(255,255,255,0.4);
+      padding: 24px 5%; text-align: center; font-size: 12px;
+    }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← All Posts</a>
+</nav>
+
+<!-- POST HERO -->
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Mutual Funds</span>
+    <h1>What is a SIP and why every salaried person should start one</h1>
+    <div class="post-meta">
+      <span>By Advit Capital Advisors</span>
+      <span class="divider"></span>
+      <span>June 10, 2025</span>
+      <span class="divider"></span>
+      <span>5 min read</span>
+    </div>
+  </div>
+</div>
+
+<!-- POST LAYOUT -->
+<div class="post-layout">
+
+  <!-- ARTICLE BODY — edit this section for each post -->
+  <article class="post-body">
+
+    <p>If you've ever felt that <strong>investing is complicated, risky, or only for the wealthy</strong> — this post is for you. A Systematic Investment Plan, or SIP, is one of the simplest and most powerful ways to build wealth over time. And the best part? You can start with just ₹500 a month.</p>
+
+    <h2>What exactly is a SIP?</h2>
+    <p>A SIP is a method of investing in mutual funds where you invest a <strong>fixed amount at regular intervals</strong> — usually monthly — instead of putting in a large lump sum at once. Think of it like a recurring deposit, except your money is invested in the market and has the potential to grow significantly over the long term.</p>
+
+    <div class="callout">
+      💡 <strong>Think of it this way:</strong> A SIP is not a type of mutual fund — it's a <em>method</em> of investing in mutual funds. You choose the fund; the SIP is simply your commitment to invest regularly.
+    </div>
+
+    <h2>How does a SIP work?</h2>
+    <p>When you start a SIP, a fixed amount is automatically debited from your bank account every month and invested in your chosen mutual fund. You receive units of the fund at the prevailing NAV (Net Asset Value — the price per unit on that day).</p>
+    <p>Because you invest at different NAVs each month, you automatically benefit from <strong>Rupee Cost Averaging</strong>: you buy more units when prices are low, and fewer when prices are high. This reduces the impact of market volatility on your overall portfolio.</p>
+
+    <h2>The power of compounding</h2>
+    <p>The biggest advantage of a SIP is time. The longer you stay invested, the harder compounding works for you. Here's a simple example:</p>
+
+    <table class="post-table">
+      <thead>
+        <tr><th>Monthly SIP</th><th>Duration</th><th>Assumed Returns</th><th>Corpus Built</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>₹5,000</td><td>10 years</td><td>12% p.a.</td><td>~₹11.6 Lakh</td></tr>
+        <tr><td>₹5,000</td><td>20 years</td><td>12% p.a.</td><td>~₹49.9 Lakh</td></tr>
+        <tr><td>₹5,000</td><td>30 years</td><td>12% p.a.</td><td>~₹1.76 Crore</td></tr>
+      </tbody>
+    </table>
+
+    <p>Same ₹5,000 per month. The only difference is time. This is why <strong>starting early matters more than starting big.</strong></p>
+
+    <h2>Why SIPs are perfect for salaried individuals</h2>
+    <ul>
+      <li><strong>Automatic & disciplined:</strong> The amount debits automatically — no willpower needed.</li>
+      <li><strong>Flexible:</strong> You can pause, increase, or stop anytime without penalty.</li>
+      <li><strong>Low entry barrier:</strong> Start with as little as ₹500/month.</li>
+      <li><strong>No need to time the market:</strong> Regular investing smooths out market ups and downs.</li>
+    </ul>
+
+    <h2>Common mistakes to avoid</h2>
+    <p>Many first-time investors make the mistake of stopping their SIP when markets fall. This is actually the worst time to stop — falling markets mean you're buying units at a <em>lower price</em>, which benefits you when markets recover.</p>
+
+    <div class="callout">
+      📌 <strong>Golden rule:</strong> Stay invested through market downturns. Short-term noise should not interrupt long-term wealth creation.
+    </div>
+
+    <h2>How to get started</h2>
+    <p>Starting a SIP takes less than 15 minutes today. But choosing the <em>right fund</em> for your specific goals and risk appetite is where personalised advice makes a real difference. A fund that's right for someone else may not be right for you.</p>
+    <p>At Advit Capital Advisors, we begin with a simple conversation about your goals — and then recommend funds that genuinely fit your life, not just a generic portfolio.</p>
+
+    <div class="post-disclaimer">
+      <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. The return figures in the table above are illustrative only, based on assumed 12% p.a. returns — actual returns will vary. Past performance is not indicative of future results. Please read all scheme-related documents carefully before investing.
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="post-sidebar">
+    <div class="sidebar-card">
+      <h4>Ready to start your SIP?</h4>
+      <p>Book a free 30-min consultation. We'll recommend the right fund for your goals — no pressure, no jargon.</p>
+      <a href="../index.html#contact" class="sidebar-btn">Book Free Consultation →</a>
+    </div>
+    <div class="related-card">
+      <h4>Related Posts</h4>
+      <a href="equity-vs-debt.html" class="related-link">
+        <span>⚖️</span>
+        <span>Equity vs Debt funds — which is right for you?</span>
+      </a>
+      <a href="elss-tax-saving.html" class="related-link">
+        <span>🛡️</span>
+        <span>ELSS: Save tax and grow wealth at the same time</span>
+      </a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- BACK TO BLOG -->
+<div class="post-footer">
+  <p>Found this useful? Explore more articles on mutual funds and financial planning.</p>
+  <a href="index.html" class="back-btn">← Back to all posts</a>
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks.
+</footer>
+
+</body>
+</html>

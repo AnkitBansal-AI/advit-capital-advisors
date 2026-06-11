@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Advit Capital Advisors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    .blog-hero {
+      background: linear-gradient(160deg, var(--deep), var(--navy));
+      padding: 72px 5% 60px; text-align: center;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px;
+    }
+    .blog-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--white);
+      margin-bottom: 14px;
+    }
+    .blog-hero p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto; }
+
+    .blog-main { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+
+    /* Filter tabs */
+    .filter-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 44px; }
+    .filter-btn {
+      padding: 7px 18px; border-radius: 100px; font-size: 13px; font-weight: 500;
+      border: 1.5px solid #DDD; background: none; cursor: pointer; color: var(--muted);
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--navy); color: var(--white); border-color: var(--navy);
+    }
+
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .blog-card {
+      background: var(--white); border-radius: 16px;
+      border: 1px solid #E5D9C8; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; display: flex; flex-direction: column;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,31,58,0.1); }
+    .blog-card-img {
+      height: 160px;
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      display: flex; align-items: center; justify-content: center; font-size: 48px;
+    }
+    .blog-card-body { padding: 22px 20px; flex: 1; display: flex; flex-direction: column; }
+    .blog-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.1);
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; width: fit-content;
+    }
+    .blog-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 600; color: var(--navy);
+      margin-bottom: 8px; line-height: 1.35;
+    }
+    .blog-card p { font-size: 13px; line-height: 1.65; color: var(--muted); flex: 1; }
+    .blog-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 16px; padding-top: 14px; border-top: 1px solid #EEE;
+    }
+    .blog-date { font-size: 12px; color: var(--muted); }
+    .blog-read { font-size: 12px; font-weight: 600; color: var(--navy); }
+
+
+    footer {
+      background: var(--deep); color: rgba(255,255,255,0.4);
+      padding: 28px 5%; text-align: center; font-size: 13px; margin-top: 40px;
+    }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+
+    @media(max-width:900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:580px) { .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="../index.html" class="nav-back">← Back to main site</a>
+</nav>
+
+<div class="blog-hero">
+  <span class="eyebrow">The Advit Capital Blog</span>
+  <h1>Financial insights, made simple</h1>
+  <p>Plain-language guidance on mutual funds, tax planning, and building lasting wealth.</p>
+</div>
+
+<div class="blog-main">
+
+  <div class="filter-row">
+    <button class="filter-btn active">All Posts</button>
+    <button class="filter-btn">Mutual Funds</button>
+    <button class="filter-btn">Tax Planning</button>
+    <button class="filter-btn">Retirement</button>
+    <button class="filter-btn">Basics</button>
+    <button class="filter-btn">Market Insights</button>
+  </div>
+
+  <div class="blog-grid">
+
+    <a href="what-is-sip.html" class="blog-card">
+      <div class="blog-card-img">📈</div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Mutual Funds</span>
+        <h2>What is a SIP and why every salaried person should start one</h2>
+        <p>SIP is the most disciplined way to build wealth. Here's why starting early, even with ₹500, makes a massive long-term difference.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">June 11, 2025</span>
+          <span class="blog-read">5 min →</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="growth-vs-dividend.html" class="blog-card">
+      <div class="blog-card-img">📈</div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Mutual Funds</span>
+        <h2>Growth vs Dividend Option: What Should You Choose?</h2>
+        <p>Growth or dividend — one of the most common questions new investors ask. The answer depends on your goals, tax situation, and whether you actually need regular income.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">June 10, 2025</span>
+          <span class="blog-read">5 min →</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="equity-vs-debt.html" class="blog-card">
+      <div class="blog-card-img">⚖️</div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Basics</span>
+        <h2>Equity vs Debt mutual funds — which one is right for you?</h2>
+        <p>Not all mutual funds are the same. The choice depends on your goals, timeline, and risk appetite.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">June 9, 2025</span>
+          <span class="blog-read">4 min →</span>
+        </div>
+      </div>
+    </a>
+
+
+    <!-- ═══════════════════════════════════════════════
+         ADD NEW BLOG CARDS HERE — copy one block above,
+         update the href, emoji, tag, title, excerpt, date
+         ═══════════════════════════════════════════════ -->
+
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Back to main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks. Read all scheme documents carefully.
+</footer>
+
+</body>
+</html>
