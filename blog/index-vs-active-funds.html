@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index Funds vs Active Funds: The Great Debate Settled – Advit Capital Advisors</title>
+  <meta name="description" content="Index funds or active funds — which should you choose? We cut through the noise, look at the real data, and help you decide what belongs in your portfolio." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+      --blue:#1A3B6B; --blue-lt:#EAF0FA;
+      --purple:#4A1A6B; --purple-lt:#F3EAF9;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    .post-hero { background: linear-gradient(160deg, var(--deep), var(--navy)); padding: 64px 5% 56px; }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.25);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 18px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .post-meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .post-meta .divider { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 60px 5%; align-items: start;
+    }
+    @media(max-width:900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+    .post-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .post-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin: 44px 0 14px; }
+    .post-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin: 30px 0 10px; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body ul, .post-body ol { margin: 0 0 20px 22px; }
+    .post-body li { margin-bottom: 10px; line-height: 1.7; }
+    .post-body strong { font-weight: 600; color: var(--navy); }
+    .post-body em { font-style: italic; }
+
+    .callout {
+      background: rgba(201,153,58,0.07); border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: var(--slate);
+    }
+    .callout-info {
+      background: var(--blue-lt); border-left: 4px solid var(--blue);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: #1A2B4A;
+    }
+
+    /* Head-to-head cards */
+    .h2h { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    @media(max-width:620px) { .h2h { grid-template-columns: 1fr; } }
+    .h2h-card { border-radius: 16px; padding: 28px 24px; }
+    .h2h-card.index  { background: var(--blue-lt);   border: 1.5px solid #B0C8F0; }
+    .h2h-card.active { background: var(--purple-lt); border: 1.5px solid #C8A0E0; }
+    .h2h-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+    }
+    .h2h-card.index  .h2h-badge { background: #B0C8F0; color: var(--blue); }
+    .h2h-card.active .h2h-badge { background: #C8A0E0; color: var(--purple); }
+    .h2h-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 700; color: var(--navy); margin: 0 0 14px;
+    }
+    .h2h-card p { font-size: 13px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
+    .pro-con-list { list-style: none; padding: 0; margin: 0; }
+    .pro-con-list li {
+      font-size: 13px; padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; gap: 8px; align-items: flex-start; line-height: 1.5;
+    }
+    .pro-con-list li:last-child { border-bottom: none; }
+    .pro { color: #1A6B3A; font-weight: 700; flex-shrink: 0; }
+    .con { color: #8B1A1A; font-weight: 700; flex-shrink: 0; }
+
+    /* Expense ratio illustration */
+    .expense-box {
+      background: var(--mist); border-radius: 14px; padding: 28px 24px; margin: 28px 0;
+    }
+    .expense-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 18px; }
+    .expense-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+    .expense-label { font-size: 13px; font-weight: 600; color: var(--slate); width: 110px; flex-shrink: 0; }
+    .expense-bar-wrap { flex: 1; background: #DDE4EC; border-radius: 100px; height: 10px; min-width: 100px; }
+    .expense-bar { height: 10px; border-radius: 100px; }
+    .bar-index  { width: 15%; background: var(--blue); }
+    .bar-active { width: 85%; background: var(--purple); }
+    .expense-val { font-size: 13px; font-weight: 700; color: var(--navy); width: 60px; text-align: right; }
+    .expense-note { font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic; }
+
+    /* Full comparison table */
+    .post-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .post-table th { background: var(--navy); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 600; }
+    .post-table td { padding: 12px 14px; border-bottom: 1px solid #EEE; vertical-align: top; line-height: 1.55; }
+    .post-table tr:nth-child(even) td { background: var(--mist); }
+    .win { font-weight: 700; color: #1A6B3A; }
+
+    /* Verdict box */
+    .verdict {
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      border-radius: 16px; padding: 36px 30px; margin: 36px 0; color: var(--white);
+    }
+    .verdict-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .verdict h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; margin-bottom: 16px; }
+    .verdict p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+    .verdict p:last-child { margin-bottom: 0; }
+
+    /* Scenario cards */
+    .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+    @media(max-width:620px) { .scenario-grid { grid-template-columns: 1fr; } }
+    .scenario { background: var(--mist); border-radius: 12px; padding: 20px 18px; }
+    .scenario h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .scenario p { font-size: 13px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .scenario .rec { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--gold); background: rgba(201,153,58,0.1); padding: 3px 10px; border-radius: 100px; }
+
+    .post-disclaimer {
+      margin-top: 40px; padding: 18px 20px;
+      background: #F9F9F9; border: 1px solid #EEE; border-radius: 10px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    .post-sidebar { position: sticky; top: 88px; }
+    .sidebar-card { background: var(--navy); border-radius: 16px; padding: 28px 24px; color: var(--white); margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .sidebar-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 18px; }
+    .sidebar-btn { display: block; text-align: center; padding: 12px; background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13px; border-radius: 8px; text-decoration: none; }
+    .sidebar-btn:hover { background: var(--gold-lt); }
+    .related-card { background: var(--mist); border-radius: 14px; padding: 22px 20px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #DDD; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link span { font-size: 13px; color: var(--slate); line-height: 1.4; }
+    .related-link:hover span { color: var(--navy); }
+
+    .post-footer { background: var(--cream); padding: 48px 5%; text-align: center; }
+    .post-footer p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+    .back-btn { display: inline-block; padding: 12px 28px; border-radius: 8px; background: var(--navy); color: var(--white); font-weight: 600; font-size: 14px; text-decoration: none; }
+    .back-btn:hover { background: var(--slate); }
+    footer { background: var(--deep); color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 12px; }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← All Posts</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Basics</span>
+    <h1>Index Funds vs Active Funds: The Great Debate Settled</h1>
+    <div class="post-meta">
+      <span>By Advit Capital Advisors</span>
+      <span class="divider"></span>
+      <span>June 13, 2025</span>
+      <span class="divider"></span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+
+    <p>Few debates in personal finance generate more heat than this one. In one corner: index fund enthusiasts who believe no fund manager can beat the market consistently. In the other: believers in active management who point to funds that have delivered remarkable alpha over decades. Both sides have data. Both sides have valid points.</p>
+    <p>In this post, we're going to cut through the noise, explain exactly how each approach works, look at what the evidence actually says in the <strong>Indian context</strong>, and help you decide what belongs in your portfolio — or whether the answer might just be both.</p>
+
+    <h2>First, let's understand what each actually is</h2>
+
+    <div class="h2h">
+      <div class="h2h-card index">
+        <div class="h2h-badge">Index Fund</div>
+        <h3>The Mimic</h3>
+        <p>An index fund simply replicates a market index — like the Nifty 50 or Sensex. It buys exactly the same stocks in exactly the same proportions as the index. No fund manager is making decisions about what to buy or sell.</p>
+        <ul class="pro-con-list">
+          <li><span class="pro">✓</span> Very low expense ratio (0.1–0.3%)</li>
+          <li><span class="pro">✓</span> No fund manager risk</li>
+          <li><span class="pro">✓</span> Guaranteed to match index returns</li>
+          <li><span class="pro">✓</span> Simple, transparent, predictable</li>
+          <li><span class="con">✗</span> Will never beat the index</li>
+          <li><span class="con">✗</span> No downside protection in crashes</li>
+          <li><span class="con">✗</span> Limited to large, well-known companies</li>
+        </ul>
+      </div>
+      <div class="h2h-card active">
+        <div class="h2h-badge">Active Fund</div>
+        <h3>The Analyst</h3>
+        <p>An actively managed fund has a professional fund manager and a research team that actively decides which stocks to buy, hold, or sell — with the goal of doing better than the market index.</p>
+        <ul class="pro-con-list">
+          <li><span class="pro">✓</span> Potential to outperform the index</li>
+          <li><span class="pro">✓</span> Skilled managers can exploit market inefficiencies</li>
+          <li><span class="pro">✓</span> Can reduce exposure during downturns</li>
+          <li><span class="pro">✓</span> Access to mid/small cap opportunities</li>
+          <li><span class="con">✗</span> Higher expense ratio (0.5–2%)</li>
+          <li><span class="con">✗</span> Performance depends on the manager</li>
+          <li><span class="con">✗</span> Manager can change, strategy can drift</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The cost difference — and why it matters more than you think</h2>
+    <p>Before we look at performance, we need to talk about expense ratios — the annual fee charged by the fund, deducted from your returns. This is where index funds have a structural, permanent advantage.</p>
+
+    <div class="expense-box">
+      <h4>Typical expense ratios — Direct plans</h4>
+      <div class="expense-row">
+        <span class="expense-label">Index Fund</span>
+        <div class="expense-bar-wrap"><div class="expense-bar bar-index"></div></div>
+        <span class="expense-val">~0.2%</span>
+      </div>
+      <div class="expense-row">
+        <span class="expense-label">Active Fund</span>
+        <div class="expense-bar-wrap"><div class="expense-bar bar-active"></div></div>
+        <span class="expense-val">~1.0–1.8%</span>
+      </div>
+      <p class="expense-note">On a ₹50 lakh portfolio, a 1.5% difference in expense ratio = ₹75,000 extra in fees every year. Over 20 years, this compounds into a significant drag on your returns.</p>
+    </div>
+
+    <p>This is what Warren Buffett's argument for index funds is essentially about: the fee drag means an active fund manager has to <em>outperform the index by at least the expense ratio difference</em> every year just to break even with an index fund. That's a high bar to clear, year after year.</p>
+
+    <h2>What does the data actually say? (India-specific)</h2>
+    <p>The global data strongly favours index funds — in the US, over 80–90% of active large cap funds underperform the S&P 500 index over a 15-year period. But India is a different market, and the data here tells a more nuanced story.</p>
+
+    <table class="post-table">
+      <thead>
+        <tr><th>Category</th><th>Index Fund View</th><th>Active Fund View</th><th>Edge</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Large Cap</strong></td>
+          <td>Nifty 50 index funds have beaten ~60–70% of active large cap funds over 10 years</td>
+          <td>A handful of active large cap funds have consistently outperformed, but picking them in advance is hard</td>
+          <td><span class="win">Index funds win</span></td>
+        </tr>
+        <tr>
+          <td><strong>Mid Cap</strong></td>
+          <td>Nifty Midcap 150 index funds are relatively new in India</td>
+          <td>Several active mid cap funds have significantly outperformed the midcap index over 10+ years due to stock selection skill</td>
+          <td><span class="win">Active funds have edge</span></td>
+        </tr>
+        <tr>
+          <td><strong>Small Cap</strong></td>
+          <td>Small cap index funds are available but track a broad, less efficient segment</td>
+          <td>India's small cap space has many under-researched stocks — skilled active managers can find hidden gems here</td>
+          <td><span class="win">Active funds have edge</span></td>
+        </tr>
+        <tr>
+          <td><strong>Flexi / Multi Cap</strong></td>
+          <td>No single index replicates the flexibility of these funds</td>
+          <td>Top flexi cap managers have delivered excellent risk-adjusted returns with dynamic allocation</td>
+          <td><span class="win">Active funds are relevant</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout-info">
+      🇮🇳 <strong>The India difference:</strong> Indian markets are less efficient than the US market — especially in the mid and small cap segments. Fewer analysts track these companies, which means skilled active managers can find opportunities that aren't yet priced in. This is a genuine structural advantage for active management in India, particularly outside the large cap space.
+    </div>
+
+    <h2>The strongest argument for index funds</h2>
+    <p>It's not about market efficiency — it's about <strong>human behaviour</strong>. The biggest risk with active funds isn't the expense ratio or even underperformance. It's what investors do when an active fund underperforms for 2–3 years running.</p>
+    <p>They switch funds. They chase last year's top performer. They exit at the wrong time. This cycle of buying high and selling low destroys returns far more than any expense ratio ever could.</p>
+    <p>Index funds, by design, make this easier to avoid. There's no manager to blame. There's no narrative to chase. You simply own the market, ride it out, and capture the long-run return of the economy.</p>
+
+    <div class="callout">
+      📊 <strong>The real statistic:</strong> Research shows that the average <em>investor</em> in active mutual funds earns significantly less than the fund itself — because of poor timing of entries and exits. An index fund investor, who has nothing to monitor or react to, tends to stay invested longer and capture more of the actual return.
+    </div>
+
+    <h2>The strongest argument for active funds</h2>
+    <p>In India's mid and small cap segments, the outperformance of top active funds has been <em>real and significant</em> — not marginal. A well-managed mid cap fund running for 15 years with a consistent fund manager and investment philosophy can deliver 2–4% higher annual returns than a mid cap index. Over long periods, that compounds into a substantially larger corpus.</p>
+    <p>Additionally, during sharp market crashes, some skilled active managers have historically reduced equity exposure, provided meaningful downside protection, and recovered faster — something an index fund, which is fully invested at all times, cannot do.</p>
+
+    <h2>So — who wins?</h2>
+
+    <div class="verdict">
+      <div class="verdict-eyebrow">Our Verdict</div>
+      <h3>It's not either/or. It's both — used intelligently.</h3>
+      <p>For Indian investors, the most rational approach is a blend: use index funds where active management struggles to add value (large cap), and use carefully selected active funds where skilled managers genuinely earn their fee (mid cap, small cap, flexi cap).</p>
+      <p>The key phrase is <em>carefully selected</em>. Not all active funds are created equal. Picking an active fund based on last year's returns is a recipe for disappointment. You need to evaluate consistency across market cycles, fund manager tenure and philosophy, risk-adjusted returns, and portfolio concentration — ideally with an advisor who does this work for you.</p>
+    </div>
+
+    <h2>Which approach fits your situation?</h2>
+
+    <div class="scenario-grid">
+      <div class="scenario">
+        <h4>You're a first-time investor</h4>
+        <p>Start with a Nifty 50 or Nifty Next 50 index fund. Simple, cheap, and teaches you how equity markets move without the complexity of fund selection.</p>
+        <span class="rec">→ Index Fund</span>
+      </div>
+      <div class="scenario">
+        <h4>You want large cap exposure</h4>
+        <p>The data is clear — most active large cap funds don't beat the Nifty 50 after costs. An index fund is the smarter choice here for most investors.</p>
+        <span class="rec">→ Index Fund</span>
+      </div>
+      <div class="scenario">
+        <h4>You want mid or small cap exposure</h4>
+        <p>India's mid and small cap space is less efficient. A well-chosen active fund with a strong long-term track record and consistent manager is worth the higher fee.</p>
+        <span class="rec">→ Active Fund</span>
+      </div>
+      <div class="scenario">
+        <h4>You want a single fund for everything</h4>
+        <p>A good flexi cap or multi-asset active fund, managed by a skilled team, can do the asset allocation work for you. Better than a single index fund for most life-stage investors.</p>
+        <span class="rec">→ Active Fund</span>
+      </div>
+      <div class="scenario">
+        <h4>You don't want to monitor anything</h4>
+        <p>Index funds are genuinely lower maintenance — there's no manager change risk, no style drift, nothing to track. Set your SIP, forget it, retire.</p>
+        <span class="rec">→ Index Fund</span>
+      </div>
+      <div class="scenario">
+        <h4>You want the best of both</h4>
+        <p>Core portfolio in index funds (large cap) + satellite allocation in active funds (mid/small cap) is the approach most sophisticated investors use today.</p>
+        <span class="rec">→ Both</span>
+      </div>
+    </div>
+
+    <h2>The one thing that matters more than either choice</h2>
+    <p>Whether you choose index funds, active funds, or a blend — the single most important factor in your investing success is <strong>staying invested through the full market cycle</strong>. A disciplined investor in an average active fund will outperform a restless investor in the best index fund, simply because they stayed put.</p>
+    <p>The debate between index and active is ultimately secondary to the discipline of consistent investing, annual reviews, and not letting fear or greed drive your decisions.</p>
+
+    <div class="callout">
+      🎯 <strong>What we recommend at Advit Capital:</strong> We don't have a dogmatic view on index vs active. We look at your goals, timeline, and risk profile — and then build a portfolio using the right tool for each job. Sometimes that's an index fund. Often it includes active funds in the mid and small cap space. Always, it's about building something you can actually stick to.
+    </div>
+
+    <div class="post-disclaimer">
+      <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. The performance comparisons mentioned are based on broad historical category trends and should not be construed as guarantees of future performance. Individual fund results vary significantly. Past performance is not indicative of future results. Please consult a qualified financial advisor and read all scheme-related documents carefully before investing.
+    </div>
+
+  </article>
+
+  <aside class="post-sidebar">
+    <div class="sidebar-card">
+      <h4>Index or active — let's figure it out together</h4>
+      <p>We'll look at your goals and build a portfolio using the right approach for you. Free consultation, no pressure.</p>
+      <a href="../index.html#contact" class="sidebar-btn">Book Free Consultation →</a>
+    </div>
+    <div class="related-card">
+      <h4>Related Posts</h4>
+      <a href="large-mid-small-cap.html" class="related-link">
+        <span>📊</span>
+        <span>Large cap vs mid cap vs small cap — which suits you?</span>
+      </a>
+      <a href="how-sip-works.html" class="related-link">
+        <span>📈</span>
+        <span>How SIP works and why it's the best way to invest</span>
+      </a>
+      <a href="what-is-sip.html" class="related-link">
+        <span>💡</span>
+        <span>What is a SIP and why every salaried person should start one</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <p>Found this useful? Explore more articles on mutual funds and financial planning.</p>
+  <a href="index.html" class="back-btn">← Back to all posts</a>
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks.
+</footer>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build a Personal Financial Plan from Scratch – Advit Capital Advisors</title>
+  <meta name="description" content="A financial plan isn't a spreadsheet or a set of SIPs. It's a clear map from where you are today to where you want to be. Here's exactly how to build one." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+      --green:#1A6B3A; --green-lt:#E8F5EE;
+      --red:#8B1A1A; --red-lt:#FDF0F0;
+      --blue:#1A3B6B; --blue-lt:#EAF0FA;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    .post-hero {
+      background: linear-gradient(160deg, #061220, #0B2A1A);
+      padding: 64px 5% 56px;
+    }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.25);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 18px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .post-meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .post-meta .divider { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 60px 5%; align-items: start;
+    }
+    @media(max-width:900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+    .post-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .post-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin: 44px 0 14px; }
+    .post-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin: 30px 0 10px; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body ul, .post-body ol { margin: 0 0 20px 22px; }
+    .post-body li { margin-bottom: 10px; line-height: 1.7; }
+    .post-body strong { font-weight: 600; color: var(--navy); }
+
+    .callout {
+      background: rgba(201,153,58,0.07); border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: var(--slate);
+    }
+    .callout-green {
+      background: var(--green-lt); border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: #1A3A2A;
+    }
+    .callout-blue {
+      background: var(--blue-lt); border-left: 4px solid var(--blue);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: #0A2040;
+    }
+
+    /* Progress steps — the 7-step plan */
+    .steps-wrap { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+    .step-item {
+      display: flex; gap: 0; align-items: stretch;
+    }
+    .step-left {
+      display: flex; flex-direction: column; align-items: center; width: 56px; flex-shrink: 0;
+    }
+    .step-circle {
+      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      border: 3px solid var(--gold);
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700;
+      color: var(--gold-lt); z-index: 1;
+    }
+    .step-line { flex: 1; width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(201,153,58,0.15)); margin: 4px 0; }
+    .step-item:last-child .step-line { display: none; }
+    .step-content {
+      flex: 1; padding: 0 0 36px 20px;
+    }
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 700; color: var(--navy);
+      margin: 8px 0 10px;
+    }
+    .step-content p { font-size: 15px; color: var(--slate); line-height: 1.75; margin-bottom: 14px; }
+    .step-content p:last-child { margin-bottom: 0; }
+
+    /* Input fields within steps */
+    .step-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+    @media(max-width:540px) { .step-input-grid { grid-template-columns: 1fr; } }
+    .input-box {
+      background: var(--mist); border-radius: 10px; padding: 14px 16px;
+      border: 1.5px solid #D0DCE8;
+    }
+    .input-box label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px; }
+    .input-box .example { font-size: 14px; color: var(--navy); font-weight: 500; }
+    .input-box .hint { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+    /* Net worth snapshot table */
+    .post-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+    .post-table th { background: var(--navy); color: var(--white); padding: 11px 14px; text-align: left; font-weight: 600; }
+    .post-table td { padding: 11px 14px; border-bottom: 1px solid #EEE; }
+    .post-table tr:nth-child(even) td { background: var(--mist); }
+    .amount-positive { color: var(--green); font-weight: 600; }
+    .amount-negative { color: var(--red); font-weight: 600; }
+    .amount-neutral { color: var(--navy); font-weight: 700; }
+
+    /* Budget rule visual */
+    .budget-rule {
+      border-radius: 16px; overflow: hidden; margin: 24px 0;
+    }
+    .budget-bar { display: flex; height: 52px; }
+    .budget-seg {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--white);
+      flex-direction: column; gap: 2px;
+    }
+    .budget-seg span { font-size: 10px; font-weight: 400; opacity: 0.8; }
+    .seg-needs   { flex: 5; background: var(--navy); }
+    .seg-wants   { flex: 3; background: var(--slate); }
+    .seg-savings { flex: 2; background: var(--gold); color: var(--deep); }
+    .budget-labels { display: flex; }
+    .budget-label-item {
+      flex: 1; padding: 10px 12px; font-size: 13px;
+      background: var(--mist);
+    }
+    .budget-label-item.needs   { flex: 5; }
+    .budget-label-item.wants   { flex: 3; }
+    .budget-label-item.savings { flex: 2; }
+    .budget-label-item strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 2px; }
+    .budget-label-item span { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    /* Emergency fund calculator style box */
+    .calc-box {
+      background: var(--mist); border-radius: 14px; padding: 24px 22px; margin: 18px 0;
+      border: 1.5px solid #C8D8E8;
+    }
+    .calc-box h4 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid #D8E4EE; font-size: 14px; }
+    .calc-row:last-child { border-bottom: none; font-weight: 700; font-size: 16px; }
+    .calc-label { color: var(--slate); }
+    .calc-val { color: var(--navy); font-weight: 600; }
+    .calc-row:last-child .calc-val { color: var(--green); font-size: 18px; }
+
+    /* Goal mapping cards */
+    .goal-map { display: flex; flex-direction: column; gap: 14px; margin: 18px 0; }
+    .goal-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0;
+      border-radius: 12px; overflow: hidden; border: 1px solid #E0EAF0;
+    }
+    @media(max-width:640px) { .goal-row { grid-template-columns: 1fr 1fr; } }
+    .goal-cell { padding: 14px 16px; background: var(--white); border-right: 1px solid #E0EAF0; }
+    .goal-cell:last-child { border-right: none; }
+    .goal-cell-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px; }
+    .goal-cell-val { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .goal-cell.header { background: var(--navy); }
+    .goal-cell.header .goal-cell-label { color: var(--gold); }
+    .goal-cell.header .goal-cell-val { color: var(--white); font-family: 'Cormorant Garamond', serif; font-size: 16px; }
+
+    /* Insurance quick-check */
+    .insurance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+    @media(max-width:540px) { .insurance-grid { grid-template-columns: 1fr; } }
+    .ins-card { background: var(--white); border: 1px solid #E0EAF0; border-radius: 14px; padding: 20px 18px; }
+    .ins-icon { font-size: 28px; margin-bottom: 10px; }
+    .ins-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
+    .ins-card p { font-size: 13px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .ins-rule { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 700; color: var(--gold); background: rgba(201,153,58,0.1); padding: 3px 10px; border-radius: 100px; }
+
+    /* Review calendar */
+    .review-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+    @media(max-width:640px) { .review-grid { grid-template-columns: 1fr 1fr; } }
+    .review-card { background: var(--mist); border-radius: 12px; padding: 16px 14px; text-align: center; }
+    .review-card .rev-freq { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .review-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+    .review-card p { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+
+    /* One-page plan summary */
+    .plan-summary {
+      background: linear-gradient(135deg, var(--navy), #0A2A3A);
+      border-radius: 18px; padding: 36px 30px; margin: 36px 0; color: var(--white);
+    }
+    .plan-summary h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--gold-lt); margin-bottom: 20px; }
+    .plan-checklist { display: flex; flex-direction: column; gap: 10px; }
+    .plan-check {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: rgba(255,255,255,0.05); border-radius: 10px; padding: 14px 16px;
+    }
+    .plan-check-icon { font-size: 18px; flex-shrink: 0; }
+    .plan-check-text h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+    .plan-check-text p { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.5; }
+
+    .post-disclaimer {
+      margin-top: 40px; padding: 18px 20px;
+      background: #F9F9F9; border: 1px solid #EEE; border-radius: 10px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    .post-sidebar { position: sticky; top: 88px; }
+    .sidebar-card { background: var(--navy); border-radius: 16px; padding: 28px 24px; color: var(--white); margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .sidebar-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 18px; }
+    .sidebar-btn { display: block; text-align: center; padding: 12px; background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13px; border-radius: 8px; text-decoration: none; }
+    .sidebar-btn:hover { background: var(--gold-lt); }
+    .related-card { background: var(--mist); border-radius: 14px; padding: 22px 20px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #DDD; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link span { font-size: 13px; color: var(--slate); line-height: 1.4; }
+    .related-link:hover span { color: var(--navy); }
+
+    .post-footer { background: var(--cream); padding: 48px 5%; text-align: center; }
+    .post-footer p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+    .back-btn { display: inline-block; padding: 12px 28px; border-radius: 8px; background: var(--navy); color: var(--white); font-weight: 600; font-size: 14px; text-decoration: none; }
+    .back-btn:hover { background: var(--slate); }
+    footer { background: var(--deep); color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 12px; }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← All Posts</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Financial Planning</span>
+    <h1>How to Build a Personal Financial Plan from Scratch</h1>
+    <div class="post-meta">
+      <span>By Advit Capital Advisors</span>
+      <span class="divider"></span>
+      <span>June 19, 2025</span>
+      <span class="divider"></span>
+      <span>10 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+
+    <p>Most people think a financial plan is a stack of spreadsheets, a portfolio of SIPs, or a document their CA hands them at the end of tax season. It is none of these things. A financial plan is simply a <strong>clear, honest map</strong> — from where you are right now, financially, to where you want to be at specific points in your life. Everything else — the funds, the insurance, the investments — is just the vehicle. The map comes first.</p>
+    <p>This post walks you through building that map, step by step, from nothing. No finance degree required. No large corpus needed. Just honest answers to seven questions about your own life and money.</p>
+
+    <div class="callout">
+      📋 <strong>How to use this article:</strong> Read it once end-to-end, then come back and work through each step with your own numbers. If you're doing this as a couple, do it together — financial plans work best when both partners have built them jointly and understand every number in them.
+    </div>
+
+    <h2>The 7 steps to a complete personal financial plan</h2>
+
+    <div class="steps-wrap">
+
+      <!-- STEP 1 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Know your exact financial position today</h3>
+          <p>You cannot plan a journey without knowing your starting point. Before any investment decision, any SIP amount, any goal — you need a clear, honest picture of your current financial reality. This means building a simple net worth statement.</p>
+          <p>Net worth = Everything you own (assets) minus everything you owe (liabilities). Most people have never calculated this number — and many are surprised to find it's more positive, or more negative, than they assumed.</p>
+
+          <table class="post-table">
+            <thead><tr><th>Assets (What You Own)</th><th>Example Amount</th><th>Liabilities (What You Owe)</th><th>Example Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Bank savings balance</td><td class="amount-positive">₹2,80,000</td><td>Home loan outstanding</td><td class="amount-negative">₹28,00,000</td></tr>
+              <tr><td>Mutual fund portfolio</td><td class="amount-positive">₹4,50,000</td><td>Car loan outstanding</td><td class="amount-negative">₹3,20,000</td></tr>
+              <tr><td>EPF / PPF balance</td><td class="amount-positive">₹3,80,000</td><td>Personal loan</td><td class="amount-negative">₹80,000</td></tr>
+              <tr><td>Fixed deposits</td><td class="amount-positive">₹1,50,000</td><td>Credit card dues</td><td class="amount-negative">₹40,000</td></tr>
+              <tr><td>Property (market value)</td><td class="amount-positive">₹55,00,000</td><td></td><td></td></tr>
+              <tr><td><strong>Total Assets</strong></td><td class="amount-neutral">₹67,60,000</td><td><strong>Total Liabilities</strong></td><td class="amount-negative">₹32,40,000</td></tr>
+              <tr><td colspan="2"></td><td><strong>Net Worth</strong></td><td class="amount-positive" style="font-size:16px;">₹35,20,000</td></tr>
+            </tbody>
+          </table>
+
+          <p>Update this snapshot every year. Watching your net worth grow annually is one of the most motivating things in personal finance — and the only honest measure of whether your financial plan is actually working.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Understand your monthly cash flow</h3>
+          <p>Net worth tells you where you stand. Cash flow tells you how fast you're moving. Your monthly cash flow is your income minus your expenses — and the gap between them is what you have available to invest and save.</p>
+          <p>The simplest framework for thinking about cash flow is the <strong>50/30/20 rule</strong>: allocate 50% to needs, 30% to wants, and 20% to savings and investments. While the exact percentages will vary for your situation, the structure is a useful starting point.</p>
+
+          <div class="budget-rule">
+            <div class="budget-bar">
+              <div class="budget-seg seg-needs">50%<span>Needs</span></div>
+              <div class="budget-seg seg-wants">30%<span>Wants</span></div>
+              <div class="budget-seg seg-savings">20%<span>Save</span></div>
+            </div>
+            <div class="budget-labels">
+              <div class="budget-label-item needs">
+                <strong>Needs — 50%</strong>
+                <span>Rent/EMI, groceries, utilities, transport, insurance premiums</span>
+              </div>
+              <div class="budget-label-item wants">
+                <strong>Wants — 30%</strong>
+                <span>Dining out, subscriptions, holidays, shopping, entertainment</span>
+              </div>
+              <div class="budget-label-item savings">
+                <strong>Savings — 20%</strong>
+                <span>SIPs, emergency fund top-up, loan prepayments, investments</span>
+              </div>
+            </div>
+          </div>
+
+          <p>If you're currently saving less than 20%, don't panic — start where you are and increase by 1–2% each time you get a raise. The key is that savings must be <em>automatic</em>: SIPs and recurring transfers should happen on salary day, before you spend anything. This "pay yourself first" principle is the single most effective habit in personal finance.</p>
+
+          <div class="step-input-grid">
+            <div class="input-box">
+              <label>Monthly take-home income</label>
+              <div class="example">₹ __________</div>
+              <div class="hint">After tax, PF deductions</div>
+            </div>
+            <div class="input-box">
+              <label>Current monthly savings</label>
+              <div class="example">₹ __________</div>
+              <div class="hint">All SIPs + savings + investments</div>
+            </div>
+            <div class="input-box">
+              <label>Savings rate today</label>
+              <div class="example">_______ %</div>
+              <div class="hint">Savings ÷ Income × 100</div>
+            </div>
+            <div class="input-box">
+              <label>Target savings rate</label>
+              <div class="example">20–30%</div>
+              <div class="hint">Where you want to reach</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Build your emergency fund first</h3>
+          <p>Before you invest a single rupee in equity, you need a financial buffer that protects your investments from being disrupted by life. This is your emergency fund — liquid money that covers 3 to 6 months of essential expenses, held in a savings account or liquid mutual fund where you can access it within 24 hours.</p>
+          <p>Without an emergency fund, the first medical bill or job disruption forces you to break your SIPs, redeem your investments at exactly the wrong time, or go into high-interest debt. The emergency fund is not an investment — it is insurance for your investment plan.</p>
+
+          <div class="calc-box">
+            <h4>📌 Calculate your emergency fund target</h4>
+            <div class="calc-row"><span class="calc-label">Monthly essential expenses (rent + food + EMIs + utilities)</span><span class="calc-val">₹ _______</span></div>
+            <div class="calc-row"><span class="calc-label">× 6 months (recommended buffer)</span><span class="calc-val">× 6</span></div>
+            <div class="calc-row"><span class="calc-label">Emergency fund target</span><span class="calc-val">₹ _______</span></div>
+            <div class="calc-row"><span class="calc-label">Less: current liquid savings</span><span class="calc-val">– ₹ _______</span></div>
+            <div class="calc-row"><span class="calc-label" style="font-weight:600;color:var(--navy)">Amount still to build</span><span class="calc-val" style="color:var(--green);font-size:16px;">₹ _______</span></div>
+          </div>
+
+          <p>Once your emergency fund is fully built, do not touch it for anything other than a genuine emergency. Resist the urge to deploy it in equity when markets look attractive — it defeats the entire purpose of having it.</p>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Map your goals with precision</h3>
+          <p>Vague goals produce vague plans. "I want to retire comfortably" is not a goal. "I want a retirement corpus of ₹3 crore by age 58 to generate a monthly income of ₹80,000 in today's money" is a goal — because it can be worked backwards into a specific monthly SIP amount, invested in specific fund categories, reviewed at specific intervals.</p>
+          <p>For each goal, you need four things: <strong>what it is, when you need it, how much it costs in today's money, and how much it will cost accounting for inflation.</strong></p>
+
+          <div class="goal-map">
+            <div class="goal-row">
+              <div class="goal-cell header"><div class="goal-cell-label">Goal</div><div class="goal-cell-val">Home Purchase</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Timeline</div><div class="goal-cell-val">6 years</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Today's Cost</div><div class="goal-cell-val">₹30,00,000</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Inflation-adj.</div><div class="goal-cell-val">₹40,17,000</div></div>
+            </div>
+            <div class="goal-row">
+              <div class="goal-cell header"><div class="goal-cell-label">Goal</div><div class="goal-cell-val">Child's Education</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Timeline</div><div class="goal-cell-val">14 years</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Today's Cost</div><div class="goal-cell-val">₹20,00,000</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Inflation-adj.</div><div class="goal-cell-val">₹39,34,000</div></div>
+            </div>
+            <div class="goal-row">
+              <div class="goal-cell header"><div class="goal-cell-label">Goal</div><div class="goal-cell-val">Retirement</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Timeline</div><div class="goal-cell-val">28 years</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Today's Cost</div><div class="goal-cell-val">₹2,00,00,000</div></div>
+              <div class="goal-cell"><div class="goal-cell-label">Inflation-adj.</div><div class="goal-cell-val">₹5,93,00,000</div></div>
+            </div>
+          </div>
+
+          <p style="font-size:13px;color:var(--muted);font-style:italic;">Inflation adjustment assumes 5% p.a. for lifestyle goals and 8% p.a. for education (education inflation is higher).</p>
+          <p>Each goal then determines which type of fund you use. Short-term goals (under 3 years) → debt funds or liquid funds. Medium-term goals (3–7 years) → balanced / hybrid funds. Long-term goals (7+ years) → equity mutual funds, with decreasing risk as you approach the goal date.</p>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Protect what you're building — insurance</h3>
+          <p>Insurance is the foundation that keeps your financial plan from collapsing under the weight of life's unexpected events. No investment plan survives an uninsured medical emergency or the untimely death of the primary earner without insurance in place. Get this right before you worry about which funds to pick.</p>
+          <p>Two covers are non-negotiable for any earning adult with dependents:</p>
+
+          <div class="insurance-grid">
+            <div class="ins-card">
+              <div class="ins-icon">🛡️</div>
+              <h4>Term Life Insurance</h4>
+              <p>Pure life cover that pays a lump sum to your family if you pass away during the policy term. No investment component — just maximum cover at minimum cost. Far superior to ULIPs or endowment plans for protection purposes.</p>
+              <span class="ins-rule">Cover = 10–15× annual income</span>
+            </div>
+            <div class="ins-card">
+              <div class="ins-icon">🏥</div>
+              <h4>Health Insurance</h4>
+              <p>Covers hospitalisation and major medical expenses. A single serious illness without adequate health cover can wipe out years of investment savings. Corporate covers provided by employers are often insufficient — supplement with a personal family floater.</p>
+              <span class="ins-rule">Minimum ₹10–15 lakh cover per family</span>
+            </div>
+          </div>
+
+          <div class="callout-blue">
+            ⚠️ <strong>What insurance is NOT:</strong> Insurance is not an investment. ULIPs, money-back policies, and endowment plans are insurance products sold with an investment component — they typically do both jobs poorly and at high cost. Keep your protection (term insurance) and investment (mutual funds) completely separate for maximum efficiency.
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">6</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Build and deploy your investment portfolio</h3>
+          <p>Now — and only now, once steps 1–5 are in place — you are ready to invest. With your goals mapped, your timeline known, and your risk profile understood, you can build a portfolio where every rupee has a specific purpose.</p>
+          <p>The core principle: <strong>match the asset class to the time horizon.</strong></p>
+          <ul>
+            <li><strong>0–3 years:</strong> Liquid funds, short-duration debt funds, FDs. Capital protection is the priority. Equity is too volatile for this window.</li>
+            <li><strong>3–7 years:</strong> Balanced advantage funds, aggressive hybrid funds, or a mix of large cap equity and debt. Moderate growth with managed risk.</li>
+            <li><strong>7+ years:</strong> Equity mutual funds — large cap, flexi cap, mid cap, small cap — based on your risk profile. This is where compounding does its best work.</li>
+          </ul>
+          <p>Start each goal with its own SIP, clearly labelled in your records. When you invest, tag each investment to the goal it belongs to — retirement SIP, education SIP, home fund SIP. This prevents the common mistake of redeeming your 20-year retirement SIP early to fund a 5-year goal.</p>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">7</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h3>Review, rebalance, and evolve your plan</h3>
+          <p>A financial plan is not a one-time document. It is a living structure that must be reviewed as your life, income, and goals evolve. Markets change. Children grow up. Salaries increase. Jobs change. The plan that was right for you at 30 needs meaningful updates at 35, 40, and beyond.</p>
+          <p>Build a simple review calendar into your year:</p>
+
+          <div class="review-grid">
+            <div class="review-card">
+              <div class="rev-freq">Monthly</div>
+              <h4>Cash flow check</h4>
+              <p>Are SIPs running? Is savings rate maintained? Any new debt?</p>
+            </div>
+            <div class="review-card">
+              <div class="rev-freq">Quarterly</div>
+              <h4>Portfolio glance</h4>
+              <p>Review fund performance vs benchmark. No action unless significantly off-track.</p>
+            </div>
+            <div class="review-card">
+              <div class="rev-freq">Annually</div>
+              <h4>Full plan review</h4>
+              <p>Update net worth, reassess goals, rebalance asset allocation, tax planning.</p>
+            </div>
+            <div class="review-card">
+              <div class="rev-freq">On life events</div>
+              <h4>Plan revision</h4>
+              <p>New job, marriage, child, home purchase — each triggers a fresh plan update.</p>
+            </div>
+          </div>
+
+          <p>The annual review is the most important. Block a specific date each year — perhaps your birthday or the start of the financial year — and treat it like a fixed appointment. Review your net worth, compare it to last year, check whether your SIP amounts still match your goal targets, and discuss any life changes with your advisor.</p>
+        </div>
+      </div>
+
+    </div><!-- end steps -->
+
+    <h2>Your complete financial plan — a one-page summary</h2>
+    <p>Once you've worked through all seven steps, your financial plan can be summarised on a single page. Here's what that page contains:</p>
+
+    <div class="plan-summary">
+      <h3>Your personal financial plan checklist</h3>
+      <div class="plan-checklist">
+        <div class="plan-check">
+          <div class="plan-check-icon">📊</div>
+          <div class="plan-check-text">
+            <h4>Net worth statement</h4>
+            <p>All assets and liabilities listed, net worth calculated, updated annually.</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">💰</div>
+          <div class="plan-check-text">
+            <h4>Monthly budget with savings rate</h4>
+            <p>Income, expenses categorised, savings rate tracked, SIPs auto-deducted on salary day.</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">🔒</div>
+          <div class="plan-check-text">
+            <h4>Emergency fund fully funded</h4>
+            <p>6 months of essential expenses in a liquid, accessible account.</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">🎯</div>
+          <div class="plan-check-text">
+            <h4>Goals mapped with timelines and amounts</h4>
+            <p>Each goal has a name, a date, a cost (inflation-adjusted), and an assigned SIP.</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">🛡️</div>
+          <div class="plan-check-text">
+            <h4>Term and health insurance in place</h4>
+            <p>Adequate cover for life (10–15× income) and health (₹10L+ family floater).</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">📈</div>
+          <div class="plan-check-text">
+            <h4>Investment portfolio deployed</h4>
+            <p>Each SIP tagged to a goal, asset class matched to time horizon, portfolio reviewed annually.</p>
+          </div>
+        </div>
+        <div class="plan-check">
+          <div class="plan-check-icon">📅</div>
+          <div class="plan-check-text">
+            <h4>Annual review scheduled</h4>
+            <p>Fixed date in the calendar every year to update the plan with new numbers and life changes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-green">
+      ✅ <strong>The most important thing to remember:</strong> A perfect financial plan that never gets implemented is worth nothing. An imperfect plan that is actually followed is worth everything. Start with what you have, where you are, with whatever amount you can commit to today. Build the habit first. Refine the plan as your knowledge and income grow. The first step — just beginning — is the one that matters most.
+    </div>
+
+    <div class="post-disclaimer">
+      <strong>Disclaimer:</strong> This article is for educational purposes only and does not constitute personalised financial advice. All figures and examples are illustrative. Mutual Fund investments are subject to market risks. Insurance products mentioned should be evaluated based on your personal circumstances. Please consult a SEBI-registered financial advisor before making investment or insurance decisions.
+    </div>
+
+  </article>
+
+  <aside class="post-sidebar">
+    <div class="sidebar-card">
+      <h4>Build your plan with us</h4>
+      <p>We'll walk through every one of these seven steps with you — personalised to your numbers, goals, and life situation.</p>
+      <a href="../index.html#contact" class="sidebar-btn">Book Free Consultation →</a>
+    </div>
+    <div class="related-card">
+      <h4>Related Posts</h4>
+      <a href="short-vs-long-term-goals.html" class="related-link">
+        <span>⚖️</span>
+        <span>Short-term vs long-term goals: how to balance both</span>
+      </a>
+      <a href="delay-financial-plan.html" class="related-link">
+        <span>⏳</span>
+        <span>The true cost of delaying your financial plan by 5 years</span>
+      </a>
+      <a href="why-you-need-financial-advisor.html" class="related-link">
+        <span>🤝</span>
+        <span>Why you need a financial advisor</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <p>Found this useful? Explore more articles on mutual funds and financial planning.</p>
+  <a href="index.html" class="back-btn">← Back to all posts</a>
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks.
+</footer>
+</body>
+</html>

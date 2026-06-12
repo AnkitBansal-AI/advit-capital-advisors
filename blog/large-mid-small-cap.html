@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Large Cap vs Mid Cap vs Small Cap: Which Suits You? – Advit Capital Advisors</title>
+  <meta name="description" content="Large, mid, and small cap funds each carry different risks and rewards. Here's a clear breakdown to help you choose the right one for your goals and risk appetite." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+      --green:#1A6B3A; --green-lt:#E8F5EE;
+      --amber:#B85C00; --amber-lt:#FFF4E8;
+      --red:#8B1A1A; --red-lt:#FDF0F0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    .post-hero { background: linear-gradient(160deg, var(--deep), var(--navy)); padding: 64px 5% 56px; }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.25);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 18px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .post-meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .post-meta .divider { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 60px 5%; align-items: start;
+    }
+    @media(max-width:900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+    .post-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .post-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin: 44px 0 14px; }
+    .post-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body ul, .post-body ol { margin: 0 0 20px 22px; }
+    .post-body li { margin-bottom: 10px; line-height: 1.7; }
+    .post-body strong { font-weight: 600; color: var(--navy); }
+    .post-body em { font-style: italic; }
+
+    .callout {
+      background: rgba(201,153,58,0.07); border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: var(--slate);
+    }
+
+    /* Cap category cards */
+    .cap-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+    @media(max-width:700px) { .cap-cards { grid-template-columns: 1fr; } }
+    .cap-card { border-radius: 14px; padding: 26px 22px; border-top: 4px solid transparent; }
+    .cap-card.large { background: var(--green-lt); border-top-color: var(--green); }
+    .cap-card.mid   { background: var(--amber-lt); border-top-color: var(--amber); }
+    .cap-card.small { background: var(--red-lt);   border-top-color: var(--red); }
+    .cap-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .cap-card.large .cap-label { color: var(--green); }
+    .cap-card.mid   .cap-label { color: var(--amber); }
+    .cap-card.small .cap-label { color: var(--red); }
+    .cap-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin: 0 0 12px; }
+    .cap-card p { font-size: 13px; color: var(--slate); line-height: 1.65; margin: 0; }
+    .cap-meta { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .cap-meta-row { display: flex; justify-content: space-between; font-size: 12px; }
+    .cap-meta-label { color: var(--muted); }
+    .cap-meta-val { font-weight: 600; color: var(--navy); }
+
+    /* Full comparison table */
+    .post-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .post-table th { background: var(--navy); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 600; }
+    .post-table td { padding: 12px 14px; border-bottom: 1px solid #EEE; vertical-align: top; }
+    .post-table tr:nth-child(even) td { background: var(--mist); }
+    .badge {
+      display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 100px;
+    }
+    .badge.low    { background: var(--green-lt); color: var(--green); }
+    .badge.medium { background: var(--amber-lt); color: var(--amber); }
+    .badge.high   { background: var(--red-lt);   color: var(--red); }
+    .badge.vhigh  { background: #F5E0E0; color: #6B0000; }
+
+    /* Investor profile cards */
+    .profile-cards { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+    .profile-card {
+      display: flex; gap: 18px; align-items: flex-start;
+      border-radius: 12px; padding: 20px 18px;
+      background: var(--mist); border-left: 4px solid var(--navy);
+    }
+    .profile-emoji { font-size: 28px; flex-shrink: 0; }
+    .profile-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+    .profile-card p { font-size: 13px; color: var(--slate); line-height: 1.65; margin: 0; }
+
+    /* Blend suggestion */
+    .blend-box {
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      border-radius: 16px; padding: 32px 28px; margin: 32px 0; color: var(--white);
+    }
+    .blend-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; margin-bottom: 18px; color: var(--gold-lt); }
+    .blend-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+    .blend-item { flex: 1; min-width: 140px; background: rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; }
+    .blend-pct { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold-lt); line-height: 1; }
+    .blend-lbl { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+    .blend-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 14px; font-style: italic; }
+
+    .post-disclaimer {
+      margin-top: 40px; padding: 18px 20px;
+      background: #F9F9F9; border: 1px solid #EEE; border-radius: 10px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    .post-sidebar { position: sticky; top: 88px; }
+    .sidebar-card { background: var(--navy); border-radius: 16px; padding: 28px 24px; color: var(--white); margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .sidebar-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 18px; }
+    .sidebar-btn { display: block; text-align: center; padding: 12px; background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13px; border-radius: 8px; text-decoration: none; }
+    .sidebar-btn:hover { background: var(--gold-lt); }
+    .related-card { background: var(--mist); border-radius: 14px; padding: 22px 20px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #DDD; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link span { font-size: 13px; color: var(--slate); line-height: 1.4; }
+    .related-link:hover span { color: var(--navy); }
+
+    .post-footer { background: var(--cream); padding: 48px 5%; text-align: center; }
+    .post-footer p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+    .back-btn { display: inline-block; padding: 12px 28px; border-radius: 8px; background: var(--navy); color: var(--white); font-weight: 600; font-size: 14px; text-decoration: none; }
+    .back-btn:hover { background: var(--slate); }
+    footer { background: var(--deep); color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 12px; }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← All Posts</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Mutual Funds</span>
+    <h1>Large Cap vs Mid Cap vs Small Cap: Which Suits You?</h1>
+    <div class="post-meta">
+      <span>By Advit Capital Advisors</span>
+      <span class="divider"></span>
+      <span>June 12, 2025</span>
+      <span class="divider"></span>
+      <span>8 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+
+    <p>Walk into any conversation about equity mutual funds and you'll hear these three words thrown around — large cap, mid cap, small cap. Most people have a vague sense that small cap means "more risky" and large cap means "safer." But very few investors understand <strong>exactly what these categories mean, how they actually behave, and — most importantly — which one belongs in their portfolio.</strong></p>
+    <p>This post breaks it all down, clearly and honestly.</p>
+
+    <h2>What do "cap" categories actually mean?</h2>
+    <p>The word "cap" is short for <strong>market capitalisation</strong> — the total market value of a company's outstanding shares. It's calculated simply as: <em>Share Price × Total Number of Shares</em>. SEBI (India's market regulator) has defined the categories precisely:</p>
+
+    <div class="cap-cards">
+      <div class="cap-card large">
+        <div class="cap-label">Large Cap</div>
+        <h3>The Giants</h3>
+        <p>The top 100 companies by market capitalisation listed on Indian stock exchanges. Think Reliance, TCS, HDFC Bank, Infosys — household names with decades of operating history.</p>
+        <div class="cap-meta">
+          <div class="cap-meta-row"><span class="cap-meta-label">Risk level</span><span class="cap-meta-val">Lower</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Return potential</span><span class="cap-meta-val">Steady</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Ideal horizon</span><span class="cap-meta-val">5+ years</span></div>
+        </div>
+      </div>
+      <div class="cap-card mid">
+        <div class="cap-label">Mid Cap</div>
+        <h3>The Climbers</h3>
+        <p>Companies ranked 101 to 250 by market cap. These are established businesses that are growing rapidly — the large caps of tomorrow, if they execute well.</p>
+        <div class="cap-meta">
+          <div class="cap-meta-row"><span class="cap-meta-label">Risk level</span><span class="cap-meta-val">Moderate–High</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Return potential</span><span class="cap-meta-val">Higher</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Ideal horizon</span><span class="cap-meta-val">7+ years</span></div>
+        </div>
+      </div>
+      <div class="cap-card small">
+        <div class="cap-label">Small Cap</div>
+        <h3>The Sprinters</h3>
+        <p>Companies ranked 251 and beyond. Mostly smaller, younger businesses with high growth potential — but also higher probability of failure or sharp value drops.</p>
+        <div class="cap-meta">
+          <div class="cap-meta-row"><span class="cap-meta-label">Risk level</span><span class="cap-meta-val">High–Very High</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Return potential</span><span class="cap-meta-val">Highest</span></div>
+          <div class="cap-meta-row"><span class="cap-meta-label">Ideal horizon</span><span class="cap-meta-val">10+ years</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>How do they actually behave in the market?</h2>
+    <p>Understanding their numbers on paper is one thing. Seeing how they behave in real market conditions is where investors often get surprised — especially during downturns.</p>
+
+    <table class="post-table">
+      <thead>
+        <tr><th>Factor</th><th>Large Cap</th><th>Mid Cap</th><th>Small Cap</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Volatility</strong></td>
+          <td><span class="badge low">Low</span></td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge vhigh">Very High</span></td>
+        </tr>
+        <tr>
+          <td><strong>Drawdown in a crash</strong></td>
+          <td>Falls less sharply (e.g. -25% in 2020)</td>
+          <td>Falls more (e.g. -40% in 2020)</td>
+          <td>Falls hardest (e.g. -55% in 2020)</td>
+        </tr>
+        <tr>
+          <td><strong>Recovery speed</strong></td>
+          <td>Faster — large companies have resources to weather storms</td>
+          <td>Moderate — takes longer to recover</td>
+          <td>Slow — some may never recover fully</td>
+        </tr>
+        <tr>
+          <td><strong>Long-run return potential</strong></td>
+          <td>10–12% p.a. (historical)</td>
+          <td>13–16% p.a. (historical)</td>
+          <td>15–18% p.a. (historical, but with wide variance)</td>
+        </tr>
+        <tr>
+          <td><strong>Liquidity</strong></td>
+          <td><span class="badge low">High</span></td>
+          <td><span class="badge medium">Medium</span></td>
+          <td><span class="badge high">Low</span></td>
+        </tr>
+        <tr>
+          <td><strong>Information availability</strong></td>
+          <td>Extensively covered by analysts</td>
+          <td>Moderate coverage</td>
+          <td>Limited — needs deeper research</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      ⚠️ <strong>The 2020 lesson:</strong> During the COVID crash in March 2020, Nifty 50 (large cap) fell ~38%. Nifty Midcap 100 fell ~45%. Nifty Smallcap 100 fell ~55%. All recovered eventually — but small cap took the longest. If you had panicked and sold your small cap fund at the bottom, the loss would have been devastating and permanent.
+    </div>
+
+    <h2>Who should invest in what?</h2>
+    <p>This is the most important question — and the answer depends entirely on <em>you</em>, not on what's performed best recently.</p>
+
+    <div class="profile-cards">
+      <div class="profile-card">
+        <div class="profile-emoji">🧘</div>
+        <div>
+          <h4>Conservative investor — go heavy on Large Cap</h4>
+          <p>If market volatility keeps you up at night, you're nearing retirement, or you have a short-to-medium investment horizon (under 7 years), large cap funds are your friend. You may earn slightly lower returns, but you'll stay invested — which matters far more than chasing the highest number.</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">📈</div>
+        <div>
+          <h4>Moderate investor — include Mid Cap</h4>
+          <p>If you have at least 7–10 years ahead of you, can tolerate seeing your portfolio dip by 30–40% without panicking, and want better return potential than large caps offer, mid cap funds make excellent sense. They balance growth potential with relative stability.</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">🚀</div>
+        <div>
+          <h4>Aggressive investor — small cap as a satellite</h4>
+          <p>Small cap funds are for investors with a 10+ year horizon, high risk tolerance, and the emotional discipline to stay invested through major downturns without selling. They should rarely be your core holding — but as 15–25% of a portfolio, they can significantly boost long-run returns.</p>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-emoji">🌱</div>
+        <div>
+          <h4>First-time investor — start with Large or Flexi Cap</h4>
+          <p>If you're brand new to equity investing, resist the temptation to start with mid or small cap funds just because a friend made great returns recently. Start with a large cap or flexi cap fund, get comfortable with how equity markets move, then gradually add mid cap exposure as your confidence grows.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>The case for blending all three</h2>
+    <p>Most seasoned investors don't put everything into one category. A well-diversified equity portfolio typically blends all three — with the proportions shifting based on your age, goals, and risk appetite. Here's a sample framework for a 30-year-old with a long investment horizon:</p>
+
+    <div class="blend-box">
+      <h3>Sample portfolio blend — Aggressive (Age 30, 20-year horizon)</h3>
+      <div class="blend-row">
+        <div class="blend-item">
+          <div class="blend-pct">50%</div>
+          <div class="blend-lbl">Large Cap / Flexi Cap</div>
+        </div>
+        <div class="blend-item">
+          <div class="blend-pct">30%</div>
+          <div class="blend-lbl">Mid Cap</div>
+        </div>
+        <div class="blend-item">
+          <div class="blend-pct">20%</div>
+          <div class="blend-lbl">Small Cap</div>
+        </div>
+      </div>
+      <p class="blend-note">This is illustrative only. Your actual blend depends on your personal risk profile, goals, existing investments, and life situation. Always consult an advisor before building your allocation.</p>
+    </div>
+
+    <p>As you approach your goal — say, within 3–5 years of needing the money — you'd gradually shift more into large cap and then debt funds to protect the corpus you've built.</p>
+
+    <h2>The biggest mistake investors make with these categories</h2>
+    <p>Chasing recent performance. When small cap funds delivered 60–70% returns in a year, everyone wanted in. When they corrected 40% the following year, the same people panicked and exited — locking in their losses. This cycle repeats constantly.</p>
+    <p>The right approach is the opposite: <strong>decide your allocation based on your goals and risk profile first, then stay disciplined through the market cycle</strong>. If small cap is right for your situation, you invest and hold — regardless of whether it's currently hot or cold.</p>
+
+    <div class="callout">
+      🎯 <strong>Our recommendation:</strong> Before picking any fund category, sit with an advisor and get your risk profile assessed. At Advit Capital, we use a structured profiling process that accounts for your income, goals, timeline, and emotional relationship with money — then we recommend a category mix that you can actually stick to.
+    </div>
+
+    <div class="post-disclaimer">
+      <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. Historical return ranges mentioned are illustrative and based on broad category trends — actual returns from individual funds will differ. Past performance is not indicative of future results. The portfolio allocation example is for illustration only and does not constitute personalised investment advice. Please consult a qualified financial advisor and read all scheme-related documents before investing.
+    </div>
+
+  </article>
+
+  <aside class="post-sidebar">
+    <div class="sidebar-card">
+      <h4>Not sure which cap suits you?</h4>
+      <p>We'll assess your risk profile and recommend the right mix for your goals. Free, no-pressure consultation.</p>
+      <a href="../index.html#contact" class="sidebar-btn">Book Free Consultation →</a>
+    </div>
+    <div class="related-card">
+      <h4>Related Posts</h4>
+      <a href="how-sip-works.html" class="related-link">
+        <span>📈</span>
+        <span>How SIP works and why it's the best way to invest</span>
+      </a>
+      <a href="index-vs-active-funds.html" class="related-link">
+        <span>⚔️</span>
+        <span>Index funds vs active funds: the great debate settled</span>
+      </a>
+      <a href="what-is-sip.html" class="related-link">
+        <span>💡</span>
+        <span>What is a SIP and why every salaried person should start one</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <p>Found this useful? Explore more articles on mutual funds and financial planning.</p>
+  <a href="index.html" class="back-btn">← Back to all posts</a>
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks.
+</footer>
+</body>
+</html>
