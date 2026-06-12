@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Questions to Ask Before Choosing a Financial Advisor – Advit Capital Advisors</title>
+  <meta name="description" content="Not all financial advisors are the same. Before you trust someone with your financial future, ask these five questions — and know exactly what good answers look like." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0B1F3A; --deep:#071428; --gold:#C9993A; --gold-lt:#E8BF6A;
+      --cream:#F7F3EE; --slate:#3C5066; --mist:#EAF0F7;
+      --text:#1A2B3C; --muted:#6B7E90; --white:#FFFFFF;
+      --green:#1A6B3A; --green-lt:#E8F5EE;
+      --red:#8B1A1A; --red-lt:#FDF0F0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(7,20,40,0.97); border-bottom: 1px solid rgba(201,153,58,0.2);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--deep);
+    }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--white); }
+    .nav-logo-sub { font-size: 10px; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--gold-lt); }
+
+    .post-hero { background: linear-gradient(160deg, var(--deep), var(--navy)); padding: 64px 5% 56px; }
+    .post-hero-inner { max-width: 760px; margin: 0 auto; }
+    .post-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.25);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .post-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 18px;
+    }
+    .post-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .post-meta span { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .post-meta .divider { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+
+    .post-layout {
+      display: grid; grid-template-columns: 1fr 300px; gap: 60px;
+      max-width: 1100px; margin: 0 auto; padding: 60px 5%; align-items: start;
+    }
+    @media(max-width:900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { display: none; } }
+
+    .post-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+    .post-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin: 44px 0 14px; }
+    .post-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin: 30px 0 10px; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body ul, .post-body ol { margin: 0 0 20px 22px; }
+    .post-body li { margin-bottom: 10px; line-height: 1.7; }
+    .post-body strong { font-weight: 600; color: var(--navy); }
+    .post-body em { font-style: italic; }
+
+    .callout {
+      background: rgba(201,153,58,0.07); border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0;
+      font-size: 15px; line-height: 1.7; color: var(--slate);
+    }
+
+    /* Question cards — the main feature */
+    .question-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid #E0E8F0;
+      margin: 40px 0;
+      box-shadow: 0 4px 20px rgba(11,31,58,0.07);
+    }
+    .question-header {
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      padding: 24px 28px; display: flex; align-items: center; gap: 18px;
+    }
+    .q-number {
+      width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(201,153,58,0.2); border: 2px solid var(--gold);
+      display: grid; place-items: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700;
+      color: var(--gold-lt);
+    }
+    .question-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 700; color: var(--white);
+      line-height: 1.3; margin: 0;
+    }
+    .question-subhead {
+      font-size: 12px; color: rgba(255,255,255,0.5);
+      margin-top: 4px; font-style: italic;
+    }
+    .question-body { padding: 28px; background: var(--white); }
+    .question-body p { font-size: 15px; line-height: 1.75; color: var(--slate); margin-bottom: 20px; }
+    .question-body p:last-child { margin-bottom: 0; }
+
+    .answer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    @media(max-width:580px) { .answer-grid { grid-template-columns: 1fr; } }
+    .answer-card { border-radius: 12px; padding: 18px 16px; }
+    .answer-card.good { background: var(--green-lt); border: 1.5px solid #A8D8BB; }
+    .answer-card.bad  { background: var(--red-lt);   border: 1.5px solid #E0A8A8; }
+    .answer-head {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .answer-card.good .answer-head { color: var(--green); }
+    .answer-card.bad  .answer-head { color: var(--red); }
+    .answer-card ul { padding-left: 18px; margin: 0; }
+    .answer-card li { font-size: 13px; line-height: 1.65; margin-bottom: 7px; color: var(--slate); }
+
+    /* Watch out box */
+    .watchout {
+      background: var(--red-lt); border: 1.5px solid #E0A8A8;
+      border-radius: 12px; padding: 16px 18px; margin-top: 18px;
+    }
+    .watchout-head { font-size: 12px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .watchout p { font-size: 13px; color: #5A2020; line-height: 1.65; margin: 0; }
+
+    /* Checklist */
+    .checklist { display: flex; flex-direction: column; gap: 10px; margin: 28px 0; }
+    .check-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--white); border: 1px solid #E0EAF5;
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .check-box {
+      width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+      background: var(--green-lt); border: 1.5px solid #A8D8BB;
+      display: grid; place-items: center; font-size: 12px; color: var(--green); margin-top: 1px;
+    }
+    .check-item p { font-size: 14px; color: var(--slate); line-height: 1.6; margin: 0; }
+
+    /* Trust signals */
+    .trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 28px 0; }
+    @media(max-width:580px) { .trust-grid { grid-template-columns: 1fr; } }
+    .trust-card {
+      background: var(--mist); border-radius: 14px; padding: 20px 18px;
+      border-left: 4px solid var(--navy);
+    }
+    .trust-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
+    .trust-card p { font-size: 13px; color: var(--slate); line-height: 1.6; margin: 0; }
+
+    /* Final CTA section inside article */
+    .article-cta {
+      background: linear-gradient(135deg, var(--navy), var(--slate));
+      border-radius: 18px; padding: 36px 30px; margin: 40px 0; color: var(--white);
+      text-align: center;
+    }
+    .article-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 24px; line-height: 1.7; }
+    .article-cta a {
+      display: inline-block; padding: 14px 32px; background: var(--gold);
+      color: var(--deep); font-weight: 700; font-size: 14px;
+      border-radius: 8px; text-decoration: none; transition: background 0.2s;
+    }
+    .article-cta a:hover { background: var(--gold-lt); }
+
+    .post-disclaimer {
+      margin-top: 40px; padding: 18px 20px;
+      background: #F9F9F9; border: 1px solid #EEE; border-radius: 10px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    .post-sidebar { position: sticky; top: 88px; }
+    .sidebar-card { background: var(--navy); border-radius: 16px; padding: 28px 24px; color: var(--white); margin-bottom: 20px; }
+    .sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .sidebar-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 18px; }
+    .sidebar-btn { display: block; text-align: center; padding: 12px; background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13px; border-radius: 8px; text-decoration: none; }
+    .sidebar-btn:hover { background: var(--gold-lt); }
+    .related-card { background: var(--mist); border-radius: 14px; padding: 22px 20px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .related-link { display: flex; align-items: flex-start; gap: 10px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid #DDD; }
+    .related-link:last-child { border-bottom: none; }
+    .related-link span { font-size: 13px; color: var(--slate); line-height: 1.4; }
+    .related-link:hover span { color: var(--navy); }
+
+    .post-footer { background: var(--cream); padding: 48px 5%; text-align: center; }
+    .post-footer p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+    .back-btn { display: inline-block; padding: 12px 28px; border-radius: 8px; background: var(--navy); color: var(--white); font-weight: 600; font-size: 14px; text-decoration: none; }
+    .back-btn:hover { background: var(--slate); }
+    footer { background: var(--deep); color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 12px; }
+    footer a { color: var(--gold-lt); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <div>
+      <div class="nav-logo-text">Advit Capital</div>
+      <div class="nav-logo-sub">Advisors</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">← All Posts</a>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Financial Planning</span>
+    <h1>5 Questions to Ask Before Choosing a Financial Advisor</h1>
+    <div class="post-meta">
+      <span>By Advit Capital Advisors</span>
+      <span class="divider"></span>
+      <span>June 15, 2025</span>
+      <span class="divider"></span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+
+    <p>Choosing a financial advisor is one of the most important financial decisions you'll make — yet most people spend less time on it than they do choosing a smartphone. They go with a friend's recommendation, a bank's in-house advisor, or whoever happens to reach out at the right moment.</p>
+    <p>The result? Portfolios full of the wrong products, misaligned risk, and advisors who disappear after the first transaction. The relationship that should have lasted decades fizzles in months.</p>
+    <p>Before you trust anyone with your financial future, ask these five questions. Know what a great answer sounds like — and know exactly what should make you walk away.</p>
+
+    <div class="callout">
+      📋 <strong>How to use this article:</strong> Print this or keep it handy during your first meeting with any advisor. The questions are designed to be asked naturally, in conversation. A good advisor will welcome them. A poor one will be evasive or defensive — and that tells you everything you need to know.
+    </div>
+
+    <!-- QUESTION 1 -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="q-number">1</div>
+        <div>
+          <h3>"How do you earn from our relationship?"</h3>
+          <div class="question-subhead">The money question — ask it first, without apology</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p>This is the most important question, and the one most investors are too polite to ask. How an advisor is compensated directly shapes what they recommend — whether they admit it or not. There are two main models in India:</p>
+        <p><strong>Commission-based (distributor model):</strong> The advisor earns a commission from the AMC when you invest in a fund through them. This is the most common model in India. It's not inherently bad — but you should know which funds carry higher commissions and whether that influences recommendations.</p>
+        <p><strong>Fee-only (RIA model):</strong> The advisor charges you directly — a flat fee, hourly rate, or percentage of AUM — and earns nothing from the products they recommend. Fewer advisors operate this way in India, but it eliminates commission-based bias entirely.</p>
+        <div class="answer-grid">
+          <div class="answer-card good">
+            <div class="answer-head">✅ Good answer</div>
+            <ul>
+              <li>"I earn a distributor commission from the AMC — here's roughly what that looks like for different fund categories."</li>
+              <li>"I charge a flat advisory fee of ₹X per year, and I don't earn anything from the products I recommend."</li>
+              <li>Clear, specific, and delivered without defensiveness</li>
+            </ul>
+          </div>
+          <div class="answer-card bad">
+            <div class="answer-head">🚩 Red flag</div>
+            <ul>
+              <li>"Don't worry about that — we make sure clients get the best returns."</li>
+              <li>Vague, deflective, or irritated by the question</li>
+              <li>Claims to earn "nothing" from your investments without explaining how they're actually compensated</li>
+            </ul>
+          </div>
+        </div>
+        <div class="watchout">
+          <div class="watchout-head">⚠️ Watch out for</div>
+          <p>Advisors who push insurance-linked investment products (ULIPs, endowment plans) aggressively — these typically carry the highest commissions in the industry and are rarely the best investment option for most investors.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="q-number">2</div>
+        <div>
+          <h3>"What is your investment philosophy?"</h3>
+          <div class="question-subhead">You're looking for conviction — not jargon</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p>Every advisor has a philosophy — a set of core beliefs about how wealth is built and what their role is in that process. Some believe in active stock picking; others believe in passive, low-cost index funds; others take a goal-based, behavioural coaching approach. None of these is inherently wrong — but you need to know what yours is, and whether it aligns with the advisor's.</p>
+        <p>What you're listening for is <em>clarity and consistency</em>. An advisor who gives you a different answer depending on what you seem to want to hear doesn't actually have a philosophy — they have a sales approach.</p>
+        <div class="answer-grid">
+          <div class="answer-card good">
+            <div class="answer-head">✅ Good answer</div>
+            <ul>
+              <li>Has a clear, consistent view: "I believe in long-term, goal-mapped investing with minimal portfolio churn."</li>
+              <li>Can explain the reasoning behind their approach without referencing recent market performance</li>
+              <li>Philosophy doesn't change depending on what's currently "hot"</li>
+              <li>Focuses on your behaviour as much as fund selection</li>
+            </ul>
+          </div>
+          <div class="answer-card bad">
+            <div class="answer-head">🚩 Red flag</div>
+            <ul>
+              <li>Focuses entirely on "beating the market" or "best returns"</li>
+              <li>Shifts the conversation immediately to specific fund names or recent performance numbers</li>
+              <li>Philosophy is described vaguely: "We look at all options and pick the best for you"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="q-number">3</div>
+        <div>
+          <h3>"How do you handle a client whose portfolio is down 30%?"</h3>
+          <div class="question-subhead">The most revealing question of all</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p>This question tells you more about an advisor's real value than any other. Markets will fall — significantly, at some point during your investment journey. It's not a question of if, but when. The real question is: what does your advisor do when that happens?</p>
+        <p>Bad advisors disappear during market downturns. Or worse, they panic alongside their clients and suggest switching funds or moving to "safer" options at exactly the wrong moment. Good advisors have thought about this carefully, have a plan, and make proactive contact when markets are stressed.</p>
+        <div class="answer-grid">
+          <div class="answer-card good">
+            <div class="answer-head">✅ Good answer</div>
+            <ul>
+              <li>"I reach out to clients proactively during significant market falls — before they call me in panic."</li>
+              <li>"We discuss downside scenarios before we start investing, so clients are mentally prepared when it happens."</li>
+              <li>"A 30% fall is temporary; selling turns it permanent. My job is to help clients see through the noise."</li>
+              <li>Has a documented communication plan for market events</li>
+            </ul>
+          </div>
+          <div class="answer-card bad">
+            <div class="answer-head">🚩 Red flag</div>
+            <ul>
+              <li>"We'd move to safer funds / FDs / gold until things stabilise."</li>
+              <li>Vague: "We'd review the portfolio and take appropriate action."</li>
+              <li>No clear process — just reacts based on client pressure</li>
+              <li>Has never actually experienced managing clients through a major crash</li>
+            </ul>
+          </div>
+        </div>
+        <div class="watchout">
+          <div class="watchout-head">⚠️ Why this matters so much</div>
+          <p>The biggest wealth-destroying events in investing happen during market downturns — not because of bad fund selection, but because of bad decisions under stress. An advisor who can keep you invested during a crash is worth more than any fund recommendation they'll ever make.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="q-number">4</div>
+        <div>
+          <h3>"How often will we review my portfolio, and who initiates it?"</h3>
+          <div class="question-subhead">Great advisors are proactive, not reactive</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p>Many advisors are excellent at the initial portfolio setup — and then essentially disappear. Clients have to chase them for reviews, their calls aren't returned promptly, and the relationship becomes transactional. This is a widespread problem in the industry, and it's one of the main reasons investors feel underserved despite "having an advisor."</p>
+        <p>A genuine advisory relationship involves scheduled, regular reviews — not just when <em>you</em> remember to ask. Your life changes. Markets evolve. Your portfolio should respond to both.</p>
+        <div class="answer-grid">
+          <div class="answer-card good">
+            <div class="answer-head">✅ Good answer</div>
+            <ul>
+              <li>"We do a formal portfolio review every 6 months — I schedule and initiate it."</li>
+              <li>"If something significant changes in the market or in a fund you hold, I reach out — I don't wait for you to call."</li>
+              <li>"We also do unscheduled check-ins when major life events happen — job change, new child, large expense coming up."</li>
+            </ul>
+          </div>
+          <div class="answer-card bad">
+            <div class="answer-head">🚩 Red flag</div>
+            <ul>
+              <li>"You can call anytime if you have questions." (No proactive review process)</li>
+              <li>"We review annually" — with no clarity on who schedules it or what it covers</li>
+              <li>Only seems interested in adding new investments, not reviewing existing ones</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="q-number">5</div>
+        <div>
+          <h3>"Are you AMFI registered, and can I verify your credentials?"</h3>
+          <div class="question-subhead">Never skip this — no matter how trustworthy they seem</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p>In India, anyone distributing mutual funds must be registered with AMFI (Association of Mutual Funds in India) and hold a valid ARN (AMFI Registration Number). This is non-negotiable. It's the baseline credential that ensures the person you're dealing with has passed the NISM exam, follows SEBI guidelines, and is accountable to a regulatory framework.</p>
+        <p>Similarly, if someone is providing investment advice (not just distributing funds), they should ideally be a SEBI Registered Investment Advisor (RIA) — a more stringent designation that comes with a fiduciary duty toward clients.</p>
+        <div class="answer-grid">
+          <div class="answer-card good">
+            <div class="answer-head">✅ Good answer</div>
+            <ul>
+              <li>Provides their ARN number immediately and without hesitation</li>
+              <li>Explains the difference between an MFD (distributor) and RIA (advisor) and tells you which they are</li>
+              <li>Welcomes you to verify their registration on the AMFI or SEBI website</li>
+              <li>Has no history of SEBI or AMFI disciplinary action</li>
+            </ul>
+          </div>
+          <div class="answer-card bad">
+            <div class="answer-head">🚩 Red flag</div>
+            <ul>
+              <li>Hesitant, vague, or dismissive about credentials</li>
+              <li>"I've been in this field for 20 years" — without providing verifiable registration details</li>
+              <li>Makes promises about guaranteed returns (illegal under SEBI regulations)</li>
+              <li>Operates informally with no proper documentation or written agreements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="watchout">
+          <div class="watchout-head">⚠️ How to verify</div>
+          <p>You can verify any mutual fund distributor's ARN on the AMFI website at amfiindia.com. For SEBI Registered Investment Advisors, check sebi.gov.in. Takes two minutes and should always be done before transferring any money.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Beyond the questions: what a good relationship feels like</h2>
+    <p>The right advisor doesn't just answer these five questions well. Over time, a good advisory relationship has a particular quality to it — one that's hard to quantify but easy to recognise.</p>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4>You understand every investment you hold</h4>
+        <p>If you can't explain in plain language why each fund is in your portfolio, your advisor hasn't done their job. Informed investors make better decisions.</p>
+      </div>
+      <div class="trust-card">
+        <h4>You feel calmer about money, not anxious</h4>
+        <p>A good advisor reduces your financial anxiety — not by giving rosy projections, but by helping you feel genuinely prepared for both good and bad market environments.</p>
+      </div>
+      <div class="trust-card">
+        <h4>They say "no" when it's the right answer</h4>
+        <p>An advisor who agrees with every idea you bring is not serving your interests. The best advisors push back thoughtfully when a decision isn't in your long-term interest.</p>
+      </div>
+      <div class="trust-card">
+        <h4>You trust them enough to share the full picture</h4>
+        <p>Good advice requires complete information — income, debts, other investments, family situation. If you're hiding things from your advisor, the relationship isn't working.</p>
+      </div>
+    </div>
+
+    <h2>Your pre-meeting checklist</h2>
+    <p>Before your first meeting with any advisor, prepare the following — it will save time and immediately signal that you're a serious, organised client (which advisors notice and appreciate):</p>
+
+    <div class="checklist">
+      <div class="check-item"><div class="check-box">✓</div><p>A rough sense of your monthly income and expenses — you don't need exact numbers, just order of magnitude</p></div>
+      <div class="check-item"><div class="check-box">✓</div><p>A list of your current investments, if any — SIPs, FDs, PPF, EPF, insurance policies, real estate</p></div>
+      <div class="check-item"><div class="check-box">✓</div><p>Your top 2–3 financial goals, with rough timelines ("child's college in 14 years", "retire by 55")</p></div>
+      <div class="check-item"><div class="check-box">✓</div><p>Any large upcoming expenses in the next 3 years — home purchase, wedding, home loan repayment</p></div>
+      <div class="check-item"><div class="check-box">✓</div><p>The five questions from this article, either memorised or on your phone — ask all of them</p></div>
+    </div>
+
+    <div class="article-cta">
+      <h3>Ready to ask us these questions?</h3>
+      <p>We welcome every single one. Book a free 30-minute consultation — bring your list, challenge us, and decide for yourself if we're the right fit. No pressure, no follow-up sales calls if it's not a match.</p>
+      <a href="../index.html#contact">Book Free Consultation →</a>
+    </div>
+
+    <div class="post-disclaimer">
+      <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. This article is for educational purposes and does not constitute personalised investment or legal advice. AMFI registration and SEBI RIA status are regulatory requirements — please verify any advisor's credentials independently before investing. Read all scheme-related documents carefully before investing.
+    </div>
+
+  </article>
+
+  <aside class="post-sidebar">
+    <div class="sidebar-card">
+      <h4>Ask us these questions</h4>
+      <p>We welcome them all — credentials, philosophy, compensation, and everything in between. That's how trust is built.</p>
+      <a href="../index.html#contact" class="sidebar-btn">Book Free Consultation →</a>
+    </div>
+    <div class="related-card">
+      <h4>Related Posts</h4>
+      <a href="why-you-need-financial-advisor.html" class="related-link">
+        <span>🤝</span>
+        <span>Why you need a financial advisor (even if you think you don't)</span>
+      </a>
+      <a href="how-sip-works.html" class="related-link">
+        <span>📈</span>
+        <span>How SIP works and why it's the best way to invest</span>
+      </a>
+      <a href="index-vs-active-funds.html" class="related-link">
+        <span>⚔️</span>
+        <span>Index funds vs active funds: the great debate settled</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <p>Found this useful? Explore more articles on mutual funds and financial planning.</p>
+  <a href="index.html" class="back-btn">← Back to all posts</a>
+</div>
+
+<footer>
+  © 2025 Advit Capital Advisors &nbsp;·&nbsp; <a href="../index.html">Main site</a> &nbsp;·&nbsp;
+  Mutual Fund investments are subject to market risks.
+</footer>
+</body>
+</html>
